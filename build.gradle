@@ -8,6 +8,9 @@ buildscript {
         mavenCentral()
         jcenter()
     }
+    dependencies {
+        classpath 'com.github.jengelman.gradle.plugins:shadow:2.0.1'
+    }
 }
 
 repositories {
@@ -15,12 +18,18 @@ repositories {
 }
 
 apply plugin: 'java'
+apply plugin: 'com.github.johnrengelman.shadow'
+
+def jarName = "jpa02-all"
 
 ext {
     slf4jVersion = '1.7.24'
     guiceVersion = '4.1.0'
     jerseyVersion = '2.9.1'
+    hibernateVersion = '4.3.11.Final'
 }
+
+assemble.dependsOn shadowJar
 
 dependencies {
     compile "org.slf4j:slf4j-api:$slf4jVersion"
@@ -43,11 +52,31 @@ dependencies {
     compile group: 'org.glassfish.hk2', name: 'hk2', version: '2.3.0-b05'
     compile group: 'org.glassfish.hk2', name: 'guice-bridge', version: '2.2.0'
 
-    compile 'org.hibernate:hibernate-core:4.3.11.Final'
-    compile 'org.hibernate:hibernate-entitymanager:4.3.11.Final'
+    compile "org.hibernate:hibernate-core:$hibernateVersion"
+    compile "org.hibernate:hibernate-entitymanager:$hibernateVersion"
     compile 'org.hibernate.javax.persistence:hibernate-jpa-2.1-api:1.0.0.Final'
     compile 'com.zaxxer:HikariCP:2.7.4'
     compile 'mysql:mysql-connector-java:5.1.45'
 
     testCompile "junit:junit:4.+"
+}
+
+
+shadowJar {
+    zip64 true
+    baseName = jarName
+    classifier = null
+    mergeServiceFiles()
+    manifest {
+        attributes ('Implementation-Title': project.name,
+                'Manifest-Version': '1.0',
+                'Implementation-Version': project.version,
+                'Main-Class': 'com.company.Main')
+    }
+    from { [project.configurations.compile] } {
+        exclude "META-INF/*.SF"
+        exclude "META-INF/*.DSA"
+        exclude "META-INF/*.RSA"
+    }
+    with jar
 }
