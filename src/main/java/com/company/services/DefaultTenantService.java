@@ -14,41 +14,61 @@ import java.util.List;
  * @since 12/15/17
  */
 public class DefaultTenantService extends AbstractService implements TenantService {
-  private static final Logger logger = LoggerFactory.getLogger(DefaultTenantService.class);
+    private static final Logger logger = LoggerFactory.getLogger(DefaultTenantService.class);
 
-  public Tenant getOne(Long id) {
-    try {
-      EntityManager em = getEntityManager();
+    public Tenant getOne(Long id) {
+        try {
+            EntityManager em = getEntityManager();
 
-      em.getTransaction().begin();
+            em.getTransaction().begin();
 
-      Tenant result = em.find(Tenant.class, id);
+            Tenant result = em.find(Tenant.class, id);
 
-      em.getTransaction().commit();
-      em.close();
+            em.getTransaction().commit();
+            em.close();
 
-      return result;
-    } catch (NamingException e) {
-      return null;
+            return result;
+        } catch (NamingException e) {
+            return null;
+        }
     }
-  }
 
-  public List<Tenant> getList(int limit, int offset) {
-    try {
-      EntityManager em = getEntityManager();
+    public List<Tenant> getList(int limit, int offset) {
+        try {
+            EntityManager em = getEntityManager();
 
-      em.getTransaction().begin();
+            em.getTransaction().begin();
 
-      TypedQuery<Tenant> query =
-          em.createQuery("SELECT m FROM Message m", Tenant.class);
-      List<Tenant> result = query.getResultList();
+            TypedQuery<Tenant> query =
+                    em.createQuery("SELECT t FROM Tenant t", Tenant.class);
+            List<Tenant> result = query.getResultList();
 
-      em.getTransaction().commit();
-      em.close();
+            em.getTransaction().commit();
+            em.close();
 
-      return result;
-    } catch (NamingException e) {
-      return null;
+            return result;
+        } catch (NamingException e) {
+            return null;
+        }
     }
-  }
+
+    @Override
+    public void create(String name) {
+        try {
+            EntityManager em = getEntityManager();
+
+            em.getTransaction().begin();
+
+            Tenant tenant = new Tenant();
+            tenant.setName(name);
+
+            em.persist(tenant);
+
+            em.getTransaction().commit();
+            em.close();
+
+            System.out.println(tenant);
+        } catch (NamingException e) {
+        }
+    }
 }

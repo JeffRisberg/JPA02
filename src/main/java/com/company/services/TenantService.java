@@ -13,4 +13,6 @@ public interface TenantService {
     public Tenant getOne(Long id);
 
     public List<Tenant> getList(int limit, int offset);
+
+    public void create(String name);
 }

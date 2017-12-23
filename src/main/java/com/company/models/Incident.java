@@ -4,10 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name="incident")
@@ -19,6 +16,10 @@ public class Incident {
     @Column(name = "id")
     @Id
     protected Long id;
+
+    @ManyToOne
+    @JoinColumn(name = "tenant_id")
+    protected Tenant tenant;
 
     @Column(name = "content")
     protected String content;

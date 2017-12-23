@@ -14,7 +14,7 @@
             <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>
             <property name="hibernate.connection.username" value="developer"/>
             <property name="hibernate.connection.password" value="123456"/>
-            <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/jpa02?zeroDateTimeBehavior=convertToNull"/>
+            <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/master?zeroDateTimeBehavior=convertToNull"/>
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
         </properties>
 
