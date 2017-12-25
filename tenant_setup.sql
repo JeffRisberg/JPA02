@@ -17,3 +17,9 @@ CREATE TABLE incident (
   severity VARCHAR(255) NOT NULL,
   PRIMARY KEY (id)
 );
+
+INSERT INTO incident(content, description, severity)
+VALUES ('Login Error', 'Unable to log into application', 'High');
+
+INSERT INTO incident(content, description, severity)
+VALUES ('Network Error', 'Network has not responded in over 5 minutes', 'High');
