@@ -18,6 +18,9 @@ CREATE TABLE incident (
   PRIMARY KEY (id)
 );
 
+INSERT INTO users(first_name, last_name)
+VALUES ('Sally', 'Smith');
+
 INSERT INTO incident(content, description, severity)
 VALUES ('Login Error', 'Unable to log into application', 'High');
 
