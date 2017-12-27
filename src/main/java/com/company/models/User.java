@@ -13,7 +13,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 public class User {
 
-    @Column(name = "Id")
+    @Column(name = "id")
     @Id
     protected Long id;
 

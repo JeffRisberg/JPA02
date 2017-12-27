@@ -7,14 +7,16 @@ import lombok.NoArgsConstructor;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name="tenants")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class Tenant {
 
-    @Column(name = "Id")
+    @Column(name = "id")
     @Id
     protected Long id;
 

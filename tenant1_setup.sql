@@ -8,9 +8,9 @@ CREATE TABLE users (
   PRIMARY KEY (id)
 );
 
-DROP TABLE IF EXISTS incident;
+DROP TABLE IF EXISTS incidents;
 
-CREATE TABLE incident (
+CREATE TABLE incidents (
   id MEDIUMINT NOT NULL AUTO_INCREMENT,
   content VARCHAR(255) NOT NULL,
   description VARCHAR(255) NULL,
@@ -21,8 +21,8 @@ CREATE TABLE incident (
 INSERT INTO users(first_name, last_name)
 VALUES ('Sally', 'Smith');
 
-INSERT INTO incident(content, description, severity)
+INSERT INTO incidents(content, description, severity)
 VALUES ('Login Error', 'Unable to log into application', 'High');
 
-INSERT INTO incident(content, description, severity)
+INSERT INTO incidents(content, description, severity)
 VALUES ('Network Error', 'Network has not responded in over 5 minutes', 'High');
