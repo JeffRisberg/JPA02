@@ -61,7 +61,6 @@ dependencies {
     testCompile "junit:junit:4.+"
 }
 
-
 shadowJar {
     zip64 true
     baseName = jarName
