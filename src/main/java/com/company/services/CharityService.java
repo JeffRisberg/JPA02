@@ -7,7 +7,7 @@ import java.util.List;
 
 /**
  * @author Jeff Risberg
- * @since 11/20/17
+ * @since 11/30/17
  */
 public interface CharityService {
 
