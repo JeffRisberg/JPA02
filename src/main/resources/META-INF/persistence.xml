@@ -6,7 +6,8 @@
     <persistence-unit name="docker02">
         <provider>org.hibernate.ejb.HibernatePersistence</provider>
 
-        <class>com.company.models.Incident</class>
+        <class>com.company.models.Charity</class>
+        <class>com.company.models.Donation</class>
         <class>com.company.models.Tenant</class>
         <class>com.company.models.User</class>
 

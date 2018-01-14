@@ -1,8 +1,6 @@
 package com.company.endpoints;
 
-import com.company.models.Incident;
 import com.company.models.Tenant;
-import com.company.services.IncidentService;
 import com.company.services.TenantService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

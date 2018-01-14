@@ -1,7 +1,7 @@
 package com.company.endpoints;
 
-import com.company.models.Incident;
-import com.company.services.IncidentService;
+import com.company.models.Donation;
+import com.company.services.DonationService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -24,17 +24,17 @@ import java.util.List;
 public class IncidentsEndpoint {
     private static final Logger logger = LoggerFactory.getLogger(IncidentsEndpoint.class);
 
-    protected IncidentService incidentService;
+    protected DonationService incidentService;
 
     @Inject
-    public IncidentsEndpoint(IncidentService incidentService) {
+    public IncidentsEndpoint(DonationService incidentService) {
         this.incidentService = incidentService;
     }
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response handleOne() {
-        List<Incident> incidents = incidentService.getList(0, 999);
+        List<Donation> incidents = incidentService.getList(0, 999);
 
         return Response.status(Response.Status.OK).entity(incidents).build();
     }
@@ -43,7 +43,7 @@ public class IncidentsEndpoint {
     @Path("{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response handleMany(@PathParam("id") Long id) {
-        Incident incident = incidentService.getOne(id);
+        Donation incident = incidentService.getOne(id);
 
         return Response.status(Response.Status.OK).entity(incident).build();
     }

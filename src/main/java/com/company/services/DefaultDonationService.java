@@ -1,6 +1,6 @@
 package com.company.services;
 
-import com.company.models.Incident;
+import com.company.models.Donation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -13,10 +13,10 @@ import java.util.List;
  * @author Jeff Risberg
  * @since 11/20/17
  */
-public class DefaultIncidentService extends AbstractService implements IncidentService {
-  private static final Logger logger = LoggerFactory.getLogger(DefaultIncidentService.class);
+public class DefaultDonationService extends AbstractService implements DonationService {
+  private static final Logger logger = LoggerFactory.getLogger(DefaultDonationService.class);
 
-  public Incident getOne(Long id) {
+  public Donation getOne(Long id) {
     logger.debug("getOne");
 
     try {
@@ -24,7 +24,7 @@ public class DefaultIncidentService extends AbstractService implements IncidentS
 
       em.getTransaction().begin();
 
-      Incident result = em.find(Incident.class, id);
+      Donation result = em.find(Donation.class, id);
 
       em.getTransaction().commit();
       em.close();
@@ -35,7 +35,7 @@ public class DefaultIncidentService extends AbstractService implements IncidentS
     }
   }
 
-  public List<Incident> getList(int limit, int offset) {
+  public List<Donation> getList(int limit, int offset) {
     logger.debug("getList");
 
     try {
@@ -43,9 +43,9 @@ public class DefaultIncidentService extends AbstractService implements IncidentS
 
       em.getTransaction().begin();
 
-      TypedQuery<Incident> query =
-          em.createQuery("SELECT i FROM Incident i", Incident.class);
-      List<Incident> result = query.getResultList();
+      TypedQuery<Donation> query =
+          em.createQuery("SELECT i FROM Donation i", Donation.class);
+      List<Donation> result = query.getResultList();
 
       em.getTransaction().commit();
       em.close();
@@ -63,9 +63,9 @@ public class DefaultIncidentService extends AbstractService implements IncidentS
 
     em.getTransaction().begin();
 
-    TypedQuery<Incident> query =
-        em.createQuery("SELECT i FROM Incident i", Incident.class);
-    List<Incident> result = query.getResultList();
+    TypedQuery<Donation> query =
+        em.createQuery("SELECT i FROM Donation i", Donation.class);
+    List<Donation> result = query.getResultList();
 
     em.getTransaction().commit();
     em.close();
@@ -73,7 +73,7 @@ public class DefaultIncidentService extends AbstractService implements IncidentS
     return result.size();
   }
 
-  public void create(Incident invocationStatus) throws NamingException {
+  public void create(Donation invocationStatus) throws NamingException {
     logger.debug("create");
 
     EntityManager em = getEntityManager();
@@ -86,7 +86,7 @@ public class DefaultIncidentService extends AbstractService implements IncidentS
     em.close();
   }
 
-  public void update(Incident invocationStatus) throws NamingException {
+  public void update(Donation invocationStatus) throws NamingException {
     EntityManager em = getEntityManager();
 
     em.getTransaction().begin();

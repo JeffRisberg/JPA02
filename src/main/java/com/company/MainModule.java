@@ -22,8 +22,9 @@ public class MainModule extends ServletModule {
         bind(DatabaseConfig.class).annotatedWith(MySQL.class).to(EnvironmentBasedMySQLConfiguration.class).in(Scopes.SINGLETON);
         bind(AppConfig.class).to(EnvironmentBasedAppConfig.class).in(Scopes.SINGLETON);
 
+        bind(CharityService.class).to(DefaultCharityService.class).in(Scopes.SINGLETON);
         bind(UserService.class).to(DefaultUserService.class).in(Scopes.SINGLETON);
-        bind(IncidentService.class).to(DefaultIncidentService.class).in(Scopes.SINGLETON);
+        bind(DonationService.class).to(DefaultDonationService.class).in(Scopes.SINGLETON);
         bind(TenantService.class).to(DefaultTenantService.class).in(Scopes.SINGLETON);
     }
 }
