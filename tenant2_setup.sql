@@ -8,9 +8,9 @@ CREATE TABLE users (
   PRIMARY KEY (id)
 );
 
-DROP TABLE IF EXISTS incidents;
+DROP TABLE IF EXISTS donations;
 
-CREATE TABLE incidents (
+CREATE TABLE donations (
   id MEDIUMINT NOT NULL AUTO_INCREMENT,
   content VARCHAR(255) NOT NULL,
   description VARCHAR(255) NULL,
@@ -21,8 +21,8 @@ CREATE TABLE incidents (
 INSERT INTO users(first_name, last_name)
 VALUES ('Jack', 'Jones');
 
-INSERT INTO incidents(content, description, severity)
+INSERT INTO donations(content, description, severity)
 VALUES ('Install Error', 'Unable to install new application', 'Medium');
 
-INSERT INTO incidents(content, description, severity)
+INSERT INTO donations(content, description, severity)
 VALUES ('Billing Error', 'I was charged for my ride twice', 'High');

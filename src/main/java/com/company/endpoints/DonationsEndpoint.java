@@ -20,31 +20,31 @@ import java.util.List;
  * @since 11/30/17
  */
 @Singleton
-@Path("incidents")
-public class IncidentsEndpoint {
-    private static final Logger logger = LoggerFactory.getLogger(IncidentsEndpoint.class);
+@Path("donations")
+public class DonationsEndpoint {
+    private static final Logger logger = LoggerFactory.getLogger(DonationsEndpoint.class);
 
-    protected DonationService incidentService;
+    protected DonationService donationService;
 
     @Inject
-    public IncidentsEndpoint(DonationService incidentService) {
-        this.incidentService = incidentService;
+    public DonationsEndpoint(DonationService donationService) {
+        this.donationService = donationService;
     }
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response handleOne() {
-        List<Donation> incidents = incidentService.getList(0, 999);
+        List<Donation> donations = donationService.getList(0, 999);
 
-        return Response.status(Response.Status.OK).entity(incidents).build();
+        return Response.status(Response.Status.OK).entity(donations).build();
     }
 
     @GET
     @Path("{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response handleMany(@PathParam("id") Long id) {
-        Donation incident = incidentService.getOne(id);
+        Donation donation = donationService.getOne(id);
 
-        return Response.status(Response.Status.OK).entity(incident).build();
+        return Response.status(Response.Status.OK).entity(donation).build();
     }
 }
