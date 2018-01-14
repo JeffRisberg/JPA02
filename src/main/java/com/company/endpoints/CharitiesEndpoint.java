@@ -11,7 +11,7 @@ import javax.ws.rs.core.Response;
  * @since 11/30/17
  */
 @Singleton
-@Path("hello")
+@Path("charities")
 public class CharitiesEndpoint {
 
     @Inject
