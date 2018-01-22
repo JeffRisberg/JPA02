@@ -13,11 +13,11 @@ import javax.persistence.Table;
 import java.util.List;
 
 @Entity
-@Table(name = "donation_sets")
+@Table(name = "orders")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class DonationSet {
+public class Order {
 
     @Column(name = "id")
     @Id

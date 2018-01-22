@@ -8,7 +8,7 @@
 
         <class>com.company.models.Charity</class>
         <class>com.company.models.Donation</class>
-        <class>com.company.models.DonationSet</class>
+        <class>com.company.models.Order</class>
         <class>com.company.models.Tenant</class>
         <class>com.company.models.User</class>
 
