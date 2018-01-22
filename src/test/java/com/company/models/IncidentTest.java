@@ -12,7 +12,6 @@ public class IncidentTest {
         incident.setId(1L);
         incident.setContent("I cannot log in");
         incident.setDescription("No response");
-        incident.setSeverity("High");
 
         assertTrue(incident != null);
     }
