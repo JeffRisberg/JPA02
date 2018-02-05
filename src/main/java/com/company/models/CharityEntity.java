@@ -1,20 +1,23 @@
 package com.company.models;
 
+import com.company.xfers.Charity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.Session;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.util.Optional;
 
 @Entity
-@Table(name="charities")
+@Table(name = "charities")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Charity {
+public class CharityEntity extends AbstractEntity {
 
     @Column(name = "id")
     @Id
@@ -25,4 +28,8 @@ public class Charity {
 
     @Column(name = "description")
     protected String description;
+
+    public Optional<CharityEntity> create(Charity charity, Session session) {
+        return Optional.of(charity);
+    }
 }

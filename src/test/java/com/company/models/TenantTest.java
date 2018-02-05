@@ -7,7 +7,7 @@ import static org.junit.Assert.assertTrue;
 public class TenantTest {
     @Test
     public void test1() {
-        Tenant tenant  = new Tenant();
+        TenantEntity tenant  = new TenantEntity();
 
         tenant.setId(1L);
         tenant.setName("Tenant1");

@@ -1,6 +1,6 @@
 package com.company.services;
 
-import com.company.models.Donation;
+import com.company.models.DonationEntity;
 
 import java.util.List;
 
@@ -10,7 +10,7 @@ import java.util.List;
  */
 public interface DonationService {
 
-    public Donation getOne(Long id);
+    public DonationEntity getOne(Long id);
 
-    public List<Donation> getList(int limit, int offset);
+    public List<DonationEntity> getList(int limit, int offset);
 }

@@ -11,18 +11,14 @@ import javax.persistence.*;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Donation {
-
-    @Column(name = "id")
-    @Id
-    protected Long id;
+public class DonationEntity extends AbstractEntity {
 
     @Column(name="amount")
     protected Double amount;
 
     @ManyToOne
     @JoinColumn(name="charity_id")
-    protected Charity charity;
+    protected CharityEntity charity;
 
     @Column(name = "content")
     protected String content;

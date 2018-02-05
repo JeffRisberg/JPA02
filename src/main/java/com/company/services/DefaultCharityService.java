@@ -1,6 +1,6 @@
 package com.company.services;
 
-import com.company.models.Charity;
+import com.company.models.CharityEntity;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -16,7 +16,7 @@ import java.util.List;
 public class DefaultCharityService extends AbstractService implements CharityService {
   private static final Logger logger = LoggerFactory.getLogger(DefaultCharityService.class);
 
-  public Charity getOne(Long id) {
+  public CharityEntity getOne(Long id) {
     logger.debug("getOne");
 
     try {
@@ -24,7 +24,7 @@ public class DefaultCharityService extends AbstractService implements CharitySer
 
       em.getTransaction().begin();
 
-      Charity result = em.find(Charity.class, id);
+      CharityEntity result = em.find(CharityEntity.class, id);
 
       em.getTransaction().commit();
       em.close();
@@ -35,7 +35,7 @@ public class DefaultCharityService extends AbstractService implements CharitySer
     }
   }
 
-  public List<Charity> getList(int limit, int offset) {
+  public List<CharityEntity> getList(int limit, int offset) {
     logger.debug("getList");
 
     try {
@@ -43,9 +43,9 @@ public class DefaultCharityService extends AbstractService implements CharitySer
 
       em.getTransaction().begin();
 
-      TypedQuery<Charity> query =
-          em.createQuery("SELECT i FROM Charity i", Charity.class);
-      List<Charity> result = query.getResultList();
+      TypedQuery<CharityEntity> query =
+          em.createQuery("SELECT i FROM CharityEntity i", CharityEntity.class);
+      List<CharityEntity> result = query.getResultList();
 
       em.getTransaction().commit();
       em.close();
@@ -63,9 +63,9 @@ public class DefaultCharityService extends AbstractService implements CharitySer
 
     em.getTransaction().begin();
 
-    TypedQuery<Charity> query =
-        em.createQuery("SELECT i FROM Charity i", Charity.class);
-    List<Charity> result = query.getResultList();
+    TypedQuery<CharityEntity> query =
+        em.createQuery("SELECT i FROM CharityEntity i", CharityEntity.class);
+    List<CharityEntity> result = query.getResultList();
 
     em.getTransaction().commit();
     em.close();
@@ -73,7 +73,7 @@ public class DefaultCharityService extends AbstractService implements CharitySer
     return result.size();
   }
 
-  public void create(Charity invocationStatus) throws NamingException {
+  public void create(CharityEntity invocationStatus) throws NamingException {
     logger.debug("create");
 
     EntityManager em = getEntityManager();
@@ -86,7 +86,7 @@ public class DefaultCharityService extends AbstractService implements CharitySer
     em.close();
   }
 
-  public void update(Charity invocationStatus) throws NamingException {
+  public void update(CharityEntity invocationStatus) throws NamingException {
     EntityManager em = getEntityManager();
 
     em.getTransaction().begin();

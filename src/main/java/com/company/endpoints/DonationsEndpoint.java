@@ -1,6 +1,6 @@
 package com.company.endpoints;
 
-import com.company.models.Donation;
+import com.company.models.DonationEntity;
 import com.company.services.DonationService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -34,7 +34,7 @@ public class DonationsEndpoint {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response handleOne() {
-        List<Donation> donations = donationService.getList(0, 999);
+        List<DonationEntity> donations = donationService.getList(0, 999);
 
         return Response.status(Response.Status.OK).entity(donations).build();
     }
@@ -43,7 +43,7 @@ public class DonationsEndpoint {
     @Path("{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response handleMany(@PathParam("id") Long id) {
-        Donation donation = donationService.getOne(id);
+        DonationEntity donation = donationService.getOne(id);
 
         return Response.status(Response.Status.OK).entity(donation).build();
     }

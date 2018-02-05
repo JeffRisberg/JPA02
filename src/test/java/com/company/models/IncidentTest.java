@@ -7,7 +7,7 @@ import static org.junit.Assert.assertTrue;
 public class IncidentTest {
     @Test
     public void test1() {
-        Donation incident = new Donation();
+        DonationEntity incident = new DonationEntity();
 
         incident.setId(1L);
         incident.setContent("I cannot log in");

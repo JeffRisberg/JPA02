@@ -1,6 +1,6 @@
 package com.company.endpoints;
 
-import com.company.models.Tenant;
+import com.company.models.TenantEntity;
 import com.company.services.TenantService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -34,7 +34,7 @@ public class TenantEndpoint {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response handleOne() {
-        List<Tenant> tenants = tenantService.getList(0, 999);
+        List<TenantEntity> tenants = tenantService.getList(0, 999);
 
         return Response.status(Response.Status.OK).entity(tenants).build();
     }
@@ -43,7 +43,7 @@ public class TenantEndpoint {
     @Path("{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response handleMany(@PathParam("id") Long id) {
-        Tenant tenant = tenantService.getOne(id);
+        TenantEntity tenant = tenantService.getOne(id);
 
         return Response.status(Response.Status.OK).entity(tenant).build();
     }

@@ -1,5 +1,6 @@
 package com.company.services;
 
+import com.company.models.AbstractEntity;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
 
@@ -13,5 +14,10 @@ public class EntityWriter {
 
     public EntityWriter() {
         this.objectMapper = new ObjectMapper();
+    }
+
+    public void write(AbstractEntity item) {
+
+
     }
 }
