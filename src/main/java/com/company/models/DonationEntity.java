@@ -7,17 +7,17 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 
 @Entity
-@Table(name="donations")
+@Table(name = "donations")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class DonationEntity extends AbstractEntity {
+public class DonationEntity extends AbstractDatedEntity {
 
-    @Column(name="amount")
+    @Column(name = "amount")
     protected Double amount;
 
     @ManyToOne
-    @JoinColumn(name="charity_id")
+    @JoinColumn(name = "charity_id")
     protected CharityEntity charity;
 
     @Column(name = "content")

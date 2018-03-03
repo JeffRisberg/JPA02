@@ -23,13 +23,18 @@ public class CharityEntity extends AbstractEntity {
     @Id
     protected Long id;
 
-    @Column(name = "content")
-    protected String content;
+    @Column(name = "name")
+    protected String name;
 
     @Column(name = "description")
     protected String description;
 
+    @Column(name = "url")
+    protected String url;
+
     public Optional<CharityEntity> create(Charity charity, Session session) {
-        return Optional.of(charity);
+        CharityEntity charityEntity = new CharityEntity();
+
+        return Optional.of(charityEntity);
     }
 }

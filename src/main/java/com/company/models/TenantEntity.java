@@ -13,7 +13,7 @@ import javax.persistence.Table;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class TenantEntity extends AbstractEntity {
+public class TenantEntity extends AbstractDatedEntity {
 
     @Column(name = "name")
     protected String name;
