@@ -14,5 +14,5 @@ public interface TenantService {
 
     public List<Tenant> getList(int limit, int offset);
 
-    public void create(String name);
+    public Tenant create(String name);
 }

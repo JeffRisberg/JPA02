@@ -53,7 +53,7 @@ public class DefaultTenantService extends AbstractService implements TenantServi
     }
 
     @Override
-    public void create(String name) {
+    public Tenant create(String name) {
         try {
             EntityManager em = getEntityManager();
 
@@ -70,5 +70,6 @@ public class DefaultTenantService extends AbstractService implements TenantServi
             System.out.println(tenant);
         } catch (NamingException e) {
         }
+        return null;
     }
 }
