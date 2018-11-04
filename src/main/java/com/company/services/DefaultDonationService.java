@@ -1,6 +1,6 @@
 package com.company.services;
 
-import com.company.models.Donation;
+import com.company.models.DonationEntity;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -16,7 +16,7 @@ import java.util.List;
 public class DefaultDonationService extends AbstractService implements DonationService {
   private static final Logger logger = LoggerFactory.getLogger(DefaultDonationService.class);
 
-  public Donation getOne(Long id) {
+  public DonationEntity getOne(Long id) {
     logger.debug("getOne");
 
     try {
@@ -24,7 +24,7 @@ public class DefaultDonationService extends AbstractService implements DonationS
 
       em.getTransaction().begin();
 
-      Donation result = em.find(Donation.class, id);
+      DonationEntity result = em.find(DonationEntity.class, id);
 
       em.getTransaction().commit();
       em.close();
@@ -35,7 +35,7 @@ public class DefaultDonationService extends AbstractService implements DonationS
     }
   }
 
-  public List<Donation> getList(int limit, int offset) {
+  public List<DonationEntity> getList(int limit, int offset) {
     logger.debug("getList");
 
     try {
@@ -43,9 +43,9 @@ public class DefaultDonationService extends AbstractService implements DonationS
 
       em.getTransaction().begin();
 
-      TypedQuery<Donation> query =
-          em.createQuery("SELECT i FROM Donation i", Donation.class);
-      List<Donation> result = query.getResultList();
+      TypedQuery<DonationEntity> query =
+          em.createQuery("SELECT i FROM DonationEntity i", DonationEntity.class);
+      List<DonationEntity> result = query.getResultList();
 
       em.getTransaction().commit();
       em.close();
@@ -63,9 +63,9 @@ public class DefaultDonationService extends AbstractService implements DonationS
 
     em.getTransaction().begin();
 
-    TypedQuery<Donation> query =
-        em.createQuery("SELECT i FROM Donation i", Donation.class);
-    List<Donation> result = query.getResultList();
+    TypedQuery<DonationEntity> query =
+        em.createQuery("SELECT i FROM DonationEntity i", DonationEntity.class);
+    List<DonationEntity> result = query.getResultList();
 
     em.getTransaction().commit();
     em.close();
@@ -73,7 +73,7 @@ public class DefaultDonationService extends AbstractService implements DonationS
     return result.size();
   }
 
-  public void create(Donation invocationStatus) throws NamingException {
+  public void create(DonationEntity invocationStatus) throws NamingException {
     logger.debug("create");
 
     EntityManager em = getEntityManager();
@@ -86,7 +86,7 @@ public class DefaultDonationService extends AbstractService implements DonationS
     em.close();
   }
 
-  public void update(Donation invocationStatus) throws NamingException {
+  public void update(DonationEntity invocationStatus) throws NamingException {
     EntityManager em = getEntityManager();
 
     em.getTransaction().begin();

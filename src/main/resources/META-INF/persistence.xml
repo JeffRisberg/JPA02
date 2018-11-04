@@ -6,11 +6,11 @@
     <persistence-unit name="docker02">
         <provider>org.hibernate.ejb.HibernatePersistence</provider>
 
-        <class>com.company.models.Charity</class>
-        <class>com.company.models.Donation</class>
-        <class>com.company.models.Order</class>
-        <class>com.company.models.Tenant</class>
-        <class>com.company.models.User</class>
+        <class>com.company.models.CharityEntity</class>
+        <class>com.company.models.DonationEntity</class>
+        <class>com.company.models.OrderEntity</class>
+        <class>com.company.models.TenantEntity</class>
+        <class>com.company.models.UserEntity</class>
 
         <properties>
             <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>

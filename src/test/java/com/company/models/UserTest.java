@@ -7,7 +7,7 @@ import static org.junit.Assert.assertTrue;
 public class UserTest {
     @Test
     public void test1() {
-        User user = new User();
+        UserEntity user = new UserEntity();
 
         user.setId(1L);
         user.setFirstName("Jack");

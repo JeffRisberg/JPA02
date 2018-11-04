@@ -1,7 +1,6 @@
 package com.company.services;
 
-import com.company.models.Charity;
-import com.company.models.Donation;
+import com.company.models.CharityEntity;
 
 import java.util.List;
 
@@ -11,7 +10,7 @@ import java.util.List;
  */
 public interface CharityService {
 
-    public Charity getOne(Long id);
+    public CharityEntity getOne(Long id);
 
-    public List<Charity> getList(int limit, int offset);
+    public List<CharityEntity> getList(int limit, int offset);
 }

@@ -1,6 +1,6 @@
 package com.company.services;
 
-import com.company.models.Tenant;
+import com.company.models.TenantEntity;
 
 import java.util.List;
 
@@ -10,9 +10,9 @@ import java.util.List;
  */
 public interface TenantService {
 
-    public Tenant getOne(Long id);
+    public TenantEntity getOne(Long id);
 
-    public List<Tenant> getList(int limit, int offset);
+    public List<TenantEntity> getList(int limit, int offset);
 
-    public Tenant create(String name);
+    public TenantEntity create(String name);
 }

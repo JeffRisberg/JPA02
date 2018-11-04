@@ -1,6 +1,6 @@
 package com.company.endpoints;
 
-import com.company.models.User;
+import com.company.models.UserEntity;
 import com.company.services.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -31,7 +31,7 @@ public class UsersEndpoint {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response handle() {
-        List<User> users = userService.getList(0, 999);
+        List<UserEntity> users = userService.getList(0, 999);
 
         return Response.status(Response.Status.OK).entity(users).build();
     }
@@ -40,7 +40,7 @@ public class UsersEndpoint {
     @Path("{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response handleMany(@PathParam("id") Long id) {
-        User user = userService.getOne(id);
+        UserEntity user = userService.getOne(id);
 
         return Response.status(Response.Status.OK).entity(user).build();
     }

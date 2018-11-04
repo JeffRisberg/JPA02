@@ -1,6 +1,6 @@
 package com.company.services;
 
-import com.company.models.User;
+import com.company.models.UserEntity;
 
 import java.util.List;
 
@@ -10,8 +10,8 @@ import java.util.List;
  */
 public interface UserService {
 
-    public User getOne(Long Id);
+    public UserEntity getOne(Long Id);
 
-    public List<User> getList(int limit, int offset);
+    public List<UserEntity> getList(int limit, int offset);
 
 }

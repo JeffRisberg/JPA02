@@ -1,6 +1,6 @@
 package com.company.services;
 
-import com.company.models.Tenant;
+import com.company.models.TenantEntity;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -16,13 +16,13 @@ import java.util.List;
 public class DefaultTenantService extends AbstractService implements TenantService {
     private static final Logger logger = LoggerFactory.getLogger(DefaultTenantService.class);
 
-    public Tenant getOne(Long id) {
+    public TenantEntity getOne(Long id) {
         try {
             EntityManager em = getEntityManager();
 
             em.getTransaction().begin();
 
-            Tenant result = em.find(Tenant.class, id);
+            TenantEntity result = em.find(TenantEntity.class, id);
 
             em.getTransaction().commit();
             em.close();
@@ -33,15 +33,15 @@ public class DefaultTenantService extends AbstractService implements TenantServi
         }
     }
 
-    public List<Tenant> getList(int limit, int offset) {
+    public List<TenantEntity> getList(int limit, int offset) {
         try {
             EntityManager em = getEntityManager();
 
             em.getTransaction().begin();
 
-            TypedQuery<Tenant> query =
-                    em.createQuery("SELECT t FROM Tenant t", Tenant.class);
-            List<Tenant> result = query.getResultList();
+            TypedQuery<TenantEntity> query =
+                    em.createQuery("SELECT t FROM TenantEntity t", TenantEntity.class);
+            List<TenantEntity> result = query.getResultList();
 
             em.getTransaction().commit();
             em.close();
@@ -53,13 +53,13 @@ public class DefaultTenantService extends AbstractService implements TenantServi
     }
 
     @Override
-    public Tenant create(String name) {
+    public TenantEntity create(String name) {
         try {
             EntityManager em = getEntityManager();
 
             em.getTransaction().begin();
 
-            Tenant tenant = new Tenant();
+            TenantEntity tenant = new TenantEntity();
             tenant.setName(name);
 
             em.persist(tenant);
