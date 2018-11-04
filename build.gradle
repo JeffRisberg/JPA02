@@ -50,6 +50,8 @@ dependencies {
     compile group: 'org.glassfish.jersey.core', name: 'jersey-common', version: jerseyVersion
     compile group: 'org.glassfish.jersey.core', name: 'jersey-server', version: jerseyVersion
 
+    compile "com.fasterxml.jackson.jaxrs:jackson-jaxrs-json-provider:2.9.2"
+
     compile group: 'org.glassfish.jersey.containers', name: 'jersey-container-servlet', version: jerseyVersion
     compile group: 'org.glassfish.jersey.media', name: 'jersey-media-json-jackson', version: jerseyVersion
     compile group: 'org.glassfish.hk2', name: 'hk2', version: '2.3.0-b05'
