@@ -3,6 +3,7 @@ package com.company.models;
 import com.company.xfers.Charity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import org.hibernate.Session;
 
@@ -17,6 +18,7 @@ import java.util.Optional;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@EqualsAndHashCode(callSuper = true)
 public class CharityEntity extends AbstractEntity {
 
     @Column(name = "id")

@@ -1,6 +1,7 @@
 package com.company.models;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -12,6 +13,7 @@ import java.sql.Timestamp;
 
 @Data
 @MappedSuperclass
+@EqualsAndHashCode(callSuper = true)
 public class AbstractDatedEntity extends AbstractEntity {
 
     @Column(name = "created_at")
