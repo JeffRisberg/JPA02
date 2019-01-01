@@ -1,7 +1,6 @@
 package com.company.endpoints;
 
 import com.company.models.TenantEntity;
-import com.company.services.TenantService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

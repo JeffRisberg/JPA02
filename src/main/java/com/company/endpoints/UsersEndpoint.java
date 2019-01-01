@@ -1,7 +1,6 @@
 package com.company.endpoints;
 
 import com.company.models.UserEntity;
-import com.company.services.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
