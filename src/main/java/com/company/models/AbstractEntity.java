@@ -2,16 +2,14 @@ package com.company.models;
 
 import lombok.Data;
 
-import javax.persistence.Column;
-import javax.persistence.Id;
-import javax.persistence.MappedSuperclass;
+import javax.persistence.*;
+import java.io.Serializable;
 
-@Data
 @MappedSuperclass
-public class AbstractEntity {
-
-    @Column(name = "id")
+@Data
+public class AbstractEntity implements Serializable {
     @Id
-    protected Long id;
-
+    @Column(name = "id", unique = true)
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
 }
