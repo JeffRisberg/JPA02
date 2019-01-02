@@ -3,13 +3,14 @@ package com.company.services;
 import com.company.common.FilterDesc;
 import com.company.domain.Donation;
 import com.company.domain.Donor;
+import com.company.models.DonationEntity;
 import com.company.services.DAO.DonationDAO;
 
 import javax.persistence.Persistence;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicReference;
 
-public class DonationService extends AbstractService<Donation> {
+public class DonationService extends AbstractService<DonationEntity> {
     private static DonationDAO dao = new DonationDAO();
 
     public DonationService() {

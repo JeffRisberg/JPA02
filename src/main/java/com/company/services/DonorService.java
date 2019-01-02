@@ -8,7 +8,7 @@ import javax.persistence.Persistence;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicReference;
 
-public class DonorService extends AbstractService<Donor> {
+public class DonorService extends AbstractService<DonorEntity> {
     private static DonorDAO dao = new DonorDAO();
 
     public DonorService() {

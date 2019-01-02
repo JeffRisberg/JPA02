@@ -8,7 +8,7 @@ import javax.persistence.Persistence;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicReference;
 
-public class CharityService extends AbstractService<Charity> {
+public class CharityService extends AbstractService<CharityEntity> {
     private static CharityDAO dao = new CharityDAO();
 
     public CharityService() {
