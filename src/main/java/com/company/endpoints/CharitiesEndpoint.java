@@ -1,5 +1,7 @@
 package com.company.endpoints;
 
+import com.company.services.CharityService;
+
 import javax.inject.Inject;
 import javax.inject.Singleton;
 import javax.ws.rs.GET;
@@ -14,8 +16,11 @@ import javax.ws.rs.core.Response;
 @Path("charities")
 public class CharitiesEndpoint {
 
+    protected CharityService charityService;
+
     @Inject
-    public CharitiesEndpoint() {
+    public CharitiesEndpoint(CharityService charityService) {
+        this.charityService = charityService;
     }
 
     @GET

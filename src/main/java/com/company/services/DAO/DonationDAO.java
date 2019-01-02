@@ -1,6 +1,6 @@
 package com.company.services.DAO;
 
-import com.company.domain.Donation;
+import com.company.models.DonationEntity;
 import lombok.NonNull;
 
 import javax.persistence.EntityManager;
@@ -12,16 +12,16 @@ public class DonationDAO extends BaseDAOImpl {
         return super.create(obj, type, em);
     }
 
-    public Donation create(Donation obj, @NonNull EntityManager em) {
-        return super.create(obj, Donation.class, em);
+    public DonationEntity create(DonationEntity obj, @NonNull EntityManager em) {
+        return super.create(obj, DonationEntity.class, em);
     }
 
-    public Donation getById(Long id, @NonNull EntityManager em) {
-        return super.getById(Donation.class, id, em);
+    public DonationEntity getById(Long id, @NonNull EntityManager em) {
+        return super.getById(DonationEntity.class, id, em);
     }
 
     public Boolean delete(Long id, @NonNull EntityManager em) {
-        return super.deleteById(Donation.class, id, em);
+        return super.deleteById(DonationEntity.class, id, em);
     }
 }
 

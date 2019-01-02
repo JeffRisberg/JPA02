@@ -8,6 +8,7 @@
 
         <class>com.company.models.CharityEntity</class>
         <class>com.company.models.DonationEntity</class>
+        <class>com.company.models.DonorEntity</class>
         <class>com.company.models.OrderEntity</class>
         <class>com.company.models.TenantEntity</class>
         <class>com.company.models.UserEntity</class>

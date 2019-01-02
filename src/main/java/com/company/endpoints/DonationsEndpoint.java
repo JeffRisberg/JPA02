@@ -34,7 +34,7 @@ public class DonationsEndpoint {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response handleOne() {
-        List<DonationEntity> donations = donationService.getList(0, 999);
+        List<DonationEntity> donations = donationService.getAll(0, 999);
 
         return Response.status(Response.Status.OK).entity(donations).build();
     }

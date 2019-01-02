@@ -2,6 +2,7 @@ package com.company.services;
 
 import com.company.common.FilterDesc;
 import com.company.domain.Donor;
+import com.company.models.DonorEntity;
 import com.company.services.DAO.DonorDAO;
 
 import javax.persistence.Persistence;
