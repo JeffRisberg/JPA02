@@ -12,34 +12,34 @@ public class CharityService extends AbstractService<CharityEntity> {
     private static CharityDAO dao = new CharityDAO();
 
     public CharityService() {
-        this.emf = Persistence.createEntityManagerFactory("JPA01");
+        this.emf = Persistence.createEntityManagerFactory("JPA02");
     }
 
-    public Charity create(Charity Charity) {
-        final AtomicReference<Charity> created = new AtomicReference<>();
-        doWork(em -> created.set(dao.create(Charity, em)));
+    public CharityEntity create(CharityEntity charity) {
+        final AtomicReference<CharityEntity> created = new AtomicReference<>();
+        doWork(em -> created.set(dao.create(charity, em)));
         return created.get();
     }
 
-    public Charity getById(Long id) {
-        final AtomicReference<Charity> td = new AtomicReference<>();
+    public CharityEntity getById(Long id) {
+        final AtomicReference<CharityEntity> td = new AtomicReference<>();
         doWork(em -> td.set(dao.getById(id, em)));
         return td.get();
     }
 
-    public List<Charity> getAll(int limit, int offset) {
-        final AtomicReference<List<Charity>> td = new AtomicReference<>();
-        doWork(em -> td.set(dao.getAll(Charity.class, limit, offset, em)));
+    public List<CharityEntity> getAll(int limit, int offset) {
+        final AtomicReference<List<CharityEntity>> td = new AtomicReference<>();
+        doWork(em -> td.set(dao.getAll(CharityEntity.class, limit, offset, em)));
         return td.get();
     }
 
-    public List<Charity> getByCriteria(List<FilterDesc> filterDescriptions, int limit, int offset) {
-        final AtomicReference<List<Charity>> td = new AtomicReference<>();
-        doWork(em -> td.set(dao.getByCriteria(Charity.class, filterDescriptions, limit, offset, em)));
+    public List<CharityEntity> getByCriteria(List<FilterDesc> filterDescriptions, int limit, int offset) {
+        final AtomicReference<List<CharityEntity>> td = new AtomicReference<>();
+        doWork(em -> td.set(dao.getByCriteria(CharityEntity.class, filterDescriptions, limit, offset, em)));
         return td.get();
     }
 
-    public boolean update(Charity updatedEntity) {
+    public boolean update(CharityEntity updatedEntity) {
         final AtomicReference<Boolean> updated = new AtomicReference<>();
         doWork(em -> updated.set(dao.update(updatedEntity, em)));
         return updated.get();
@@ -51,8 +51,8 @@ public class CharityService extends AbstractService<CharityEntity> {
         return deleted.get();
     }
 
-    public List<Charity> getByName(String name) {
-        final AtomicReference<List<Charity>> td = new AtomicReference<>();
+    public List<CharityEntity> getByName(String name) {
+        final AtomicReference<List<CharityEntity>> td = new AtomicReference<>();
         doWork(em -> td.set(dao.getByName(name, em)));
         return td.get();
     }

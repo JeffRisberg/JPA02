@@ -10,8 +10,6 @@
         <class>com.company.models.DonationEntity</class>
         <class>com.company.models.DonorEntity</class>
         <class>com.company.models.OrderEntity</class>
-        <class>com.company.models.TenantEntity</class>
-        <class>com.company.models.UserEntity</class>
 
         <properties>
             <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>

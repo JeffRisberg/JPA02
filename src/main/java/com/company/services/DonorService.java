@@ -12,7 +12,7 @@ public class DonorService extends AbstractService<DonorEntity> {
     private static DonorDAO dao = new DonorDAO();
 
     public DonorService() {
-        this.emf = Persistence.createEntityManagerFactory("JPA01");
+        this.emf = Persistence.createEntityManagerFactory("JPA02");
     }
 
     public DonorEntity getById(Long id) {
