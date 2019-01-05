@@ -6,12 +6,10 @@ import lombok.extern.slf4j.Slf4j;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -30,6 +28,15 @@ public class CharitiesEndpoint {
         this.charityService = charityService;
     }
 
+    @POST
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response create(CharityEntity charity) {
+        charity = charityService.create(charity);
+
+        return Response.status(Response.Status.OK).entity(charity).build();
+    }
+
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response getAll() {
@@ -42,8 +49,11 @@ public class CharitiesEndpoint {
     @Path("{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getById(@PathParam("id") Long id) {
+        List<CharityEntity> result = new ArrayList<>();
         CharityEntity charity = charityService.getById(id);
 
-        return Response.status(Response.Status.OK).entity(charity).build();
+        if (charity != null) result.add(charity);
+
+        return Response.status(Response.Status.OK).entity(result).build();
     }
 }
