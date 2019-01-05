@@ -18,6 +18,10 @@ public class OrderEntity extends AbstractDatedEntity {
     @Enumerated(EnumType.STRING)
     protected OrderStatus orderStatus;
 
+    @ManyToOne
+    @JoinColumn(name = "donor_id")
+    protected DonorEntity donor;
+
     @OneToMany()
     @JoinColumn(name = "donation_id")
     protected List<DonationEntity> contents;

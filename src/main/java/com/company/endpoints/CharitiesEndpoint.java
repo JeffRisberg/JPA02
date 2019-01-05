@@ -1,6 +1,7 @@
 package com.company.endpoints;
 
 import com.company.services.CharityService;
+import lombok.extern.slf4j.Slf4j;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
@@ -12,6 +13,7 @@ import javax.ws.rs.core.Response;
  * @author Jeff Risberg
  * @since 11/30/17
  */
+@Slf4j
 @Singleton
 @Path("charities")
 public class CharitiesEndpoint {

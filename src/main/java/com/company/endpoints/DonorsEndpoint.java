@@ -1,6 +1,8 @@
 package com.company.endpoints;
 
-import com.company.models.TenantEntity;
+import com.company.models.DonationEntity;
+import com.company.services.DonationService;
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -16,34 +18,34 @@ import java.util.List;
 
 /**
  * @author Jeff Risberg
- * @since 12/15/17
+ * @since 11/30/17
  */
+@Slf4j
 @Singleton
-@Path("tenants")
-public class TenantEndpoint {
-    private static final Logger logger = LoggerFactory.getLogger(TenantEndpoint.class);
+@Path("donors")
+public class DonorsEndpoint {
 
-    protected TenantService tenantService;
+    protected DonationService donationService;
 
     @Inject
-    public TenantEndpoint(TenantService tenantService) {
-        this.tenantService = tenantService;
+    public DonorsEndpoint(DonationService donationService) {
+        this.donationService = donationService;
     }
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response handleOne() {
-        List<TenantEntity> tenants = tenantService.getList(0, 999);
+        List<DonationEntity> donations = donationService.getAll(0, 999);
 
-        return Response.status(Response.Status.OK).entity(tenants).build();
+        return Response.status(Response.Status.OK).entity(donations).build();
     }
 
     @GET
     @Path("{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response handleMany(@PathParam("id") Long id) {
-        TenantEntity tenant = tenantService.getOne(id);
+        DonationEntity donation = donationService.getById(id);
 
-        return Response.status(Response.Status.OK).entity(tenant).build();
+        return Response.status(Response.Status.OK).entity(donation).build();
     }
 }

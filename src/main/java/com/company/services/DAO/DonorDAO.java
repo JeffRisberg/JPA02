@@ -1,6 +1,6 @@
 package com.company.services.DAO;
 
-import com.company.domain.Donor;
+import com.company.models.DonorEntity;
 import lombok.NonNull;
 
 import javax.persistence.EntityManager;
@@ -17,25 +17,25 @@ public class DonorDAO extends BaseDAOImpl {
         return super.create(obj, type, em);
     }
 
-    public Donor create(Donor obj, @NonNull EntityManager em) {
-        return super.create(obj, Donor.class, em);
+    public DonorEntity create(DonorEntity obj, @NonNull EntityManager em) {
+        return super.create(obj, DonorEntity.class, em);
     }
 
-    public Donor getById(Long id, @NonNull EntityManager em) {
-        return super.getById(Donor.class, id, em);
+    public DonorEntity getById(Long id, @NonNull EntityManager em) {
+        return super.getById(DonorEntity.class, id, em);
     }
 
     public Boolean delete(Long id, @NonNull EntityManager em) {
-        return super.deleteById(Donor.class, id, em);
+        return super.deleteById(DonorEntity.class, id, em);
     }
 
-    public List<Donor> getByName(String name, @NonNull EntityManager em) {
+    public List<DonorEntity> getByName(String name, @NonNull EntityManager em) {
         try {
             CriteriaBuilder cb = em.getCriteriaBuilder();
-            CriteriaQuery<Donor> criteria = cb.createQuery(Donor.class);
-            Root root = criteria.from(Donor.class);
+            CriteriaQuery<DonorEntity> criteria = cb.createQuery(DonorEntity.class);
+            Root root = criteria.from(DonorEntity.class);
             criteria.where(cb.equal(root.get("name"), name));
-            List<Donor> results = em.createQuery(criteria).getResultList();
+            List<DonorEntity> results = em.createQuery(criteria).getResultList();
             return results;
         } catch (Exception e) {
             return new ArrayList();
