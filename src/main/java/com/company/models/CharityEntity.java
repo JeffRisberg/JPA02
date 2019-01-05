@@ -19,20 +19,16 @@ import java.util.Optional;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
-public class CharityEntity extends AbstractEntity {
+public class CharityEntity extends AbstractDatedEntity {
 
-    @Column(name = "id")
-    @Id
-    protected Long id;
-
-    @Column(name = "name")
+    @Column(name = "name", nullable = false)
     protected String name;
+
+    @Column(name = "ein", nullable = false)
+    private String ein;
 
     @Column(name = "description")
     protected String description;
-
-    @Column(name = "url")
-    protected String url;
 
     public Optional<CharityEntity> create(Charity charity, Session session) {
         CharityEntity charityEntity = new CharityEntity();

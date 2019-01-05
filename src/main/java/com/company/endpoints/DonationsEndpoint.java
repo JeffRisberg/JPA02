@@ -34,8 +34,8 @@ public class DonationsEndpoint {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public Response handleOne() {
-        List<DonationEntity> donations = donationService.getAll(0, 999);
+    public Response getAll() {
+        List<DonationEntity> donations = donationService.getAll(0, 0);
 
         return Response.status(Response.Status.OK).entity(donations).build();
     }
@@ -43,7 +43,7 @@ public class DonationsEndpoint {
     @GET
     @Path("{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response handleMany(@PathParam("id") Long id) {
+    public Response getById(@PathParam("id") Long id) {
         DonationEntity donation = donationService.getById(id);
 
         return Response.status(Response.Status.OK).entity(donation).build();
