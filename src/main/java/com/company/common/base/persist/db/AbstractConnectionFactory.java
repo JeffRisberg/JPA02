@@ -1,7 +1,6 @@
 package com.company.common.base.persist.db;
 
-import com.slg.common.base.ShutdownHook;
-import com.slg.common.base.config.DatabaseConfig;
+import com.company.common.base.config.DatabaseConfig;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 
@@ -42,7 +41,7 @@ abstract class AbstractConnectionFactory {
             hcfg.setRegisterMbeans(true);
 
             ds = new HikariDataSource(hcfg);
-            ShutdownHook.getInstance().addCloseableResource(ds);
+            //ShutdownHook.getInstance().addCloseableResource(ds);
         }
         return ds;
     }

@@ -6,7 +6,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 
 /**
- * Create AdHoc DB Connection. You are responsible to manage the connection lifecycle.
+ * Create AdHoc DB Connection. You are responsible for managing the connection lifecycle.
  */
 public interface ConnectionFactory extends Closeable {
     /**

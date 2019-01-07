@@ -1,8 +1,8 @@
 package com.company.common.base.persist.db;
 
+import com.company.common.base.binding.MySQL;
+import com.company.common.base.config.DatabaseConfig;
 import com.google.inject.Inject;
-import com.slg.common.base.binding.MySQL;
-import com.slg.common.base.config.DatabaseConfig;
 import com.zaxxer.hikari.HikariDataSource;
 
 import javax.sql.DataSource;

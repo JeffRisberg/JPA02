@@ -10,8 +10,7 @@ public class DonationTest {
         DonationEntity donation = new DonationEntity();
 
         donation.setId(1L);
-        donation.setContent("I cannot log in");
-        donation.setDescription("No response");
+        donation.setAmount(56.78);
 
         assertTrue(donation != null);
     }
