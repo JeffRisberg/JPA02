@@ -3,6 +3,7 @@ package com.company.models;
 import com.company.xfers.User;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import org.hibernate.Session;
 
@@ -16,6 +17,7 @@ import java.util.Optional;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@EqualsAndHashCode(callSuper = true)
 public class UserEntity extends AbstractDatedEntity {
 
     @Column(name = "first_name")

@@ -1,6 +1,5 @@
 package com.company.models;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -8,21 +7,33 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "donations")
-@Data
 @NoArgsConstructor
-@AllArgsConstructor
+@Data
 public class DonationEntity extends AbstractDatedEntity {
 
-    @Column(name = "amount")
-    protected Double amount;
+    @Column(name = "amount", nullable = false)
+    private Double amount;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "donor_id")
+    private DonorEntity donor;
+
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "charity_id")
-    protected CharityEntity charity;
+    private CharityEntity charity;
 
-    @Column(name = "content")
-    protected String content;
+    public DonationEntity(Double amount) {
+        this.setId(null);
+        this.amount = amount;
+    }
 
-    @Column(name = "description")
-    protected String description;
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+
+        sb.append("Donation[date=" + getDateCreated());
+        sb.append(", amount=" + amount);
+        sb.append("]");
+
+        return sb.toString();
+    }
 }

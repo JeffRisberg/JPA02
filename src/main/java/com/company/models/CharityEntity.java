@@ -3,6 +3,7 @@ package com.company.models;
 import com.company.xfers.Charity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import org.hibernate.Session;
 
@@ -17,20 +18,17 @@ import java.util.Optional;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class CharityEntity extends AbstractEntity {
+@EqualsAndHashCode(callSuper = true)
+public class CharityEntity extends AbstractDatedEntity {
 
-    @Column(name = "id")
-    @Id
-    protected Long id;
-
-    @Column(name = "name")
+    @Column(name = "name", nullable = false)
     protected String name;
+
+    @Column(name = "ein", nullable = false)
+    private String ein;
 
     @Column(name = "description")
     protected String description;
-
-    @Column(name = "url")
-    protected String url;
 
     public Optional<CharityEntity> create(Charity charity, Session session) {
         CharityEntity charityEntity = new CharityEntity();

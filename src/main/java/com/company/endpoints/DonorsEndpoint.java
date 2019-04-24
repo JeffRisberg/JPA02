@@ -2,7 +2,9 @@ package com.company.endpoints;
 
 import com.company.models.CharityEntity;
 import com.company.models.DonationEntity;
+import com.company.models.DonorEntity;
 import com.company.services.DonationService;
+import com.company.services.DonorService;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,41 +23,41 @@ import java.util.List;
  */
 @Slf4j
 @Singleton
-@Path("donations")
-public class DonationsEndpoint {
+@Path("donors")
+public class DonorsEndpoint {
 
-    protected DonationService donationService;
+    protected DonorService donorService;
 
     @Inject
-    public DonationsEndpoint(DonationService donationService) {
-        this.donationService = donationService;
+    public DonorsEndpoint(DonorService donorService) {
+        this.donorService = donorService;
     }
 
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response create(DonationEntity donation) {
-        donation = donationService.create(donation);
+    public Response create(DonorEntity donor) {
+        donor = donorService.create(donor);
 
-        return Response.status(Response.Status.OK).entity(donation).build();
+        return Response.status(Response.Status.OK).entity(donor).build();
     }
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response getAll() {
-        List<DonationEntity> donations = donationService.getAll(0, 0);
+        List<DonorEntity> donors = donorService.getAll(0, 0);
 
-        return Response.status(Response.Status.OK).entity(donations).build();
+        return Response.status(Response.Status.OK).entity(donors).build();
     }
 
     @GET
     @Path("{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getById(@PathParam("id") Long id) {
-        List<DonationEntity> result = new ArrayList<>();
-        DonationEntity donation = donationService.getById(id);
+        List<DonorEntity> result = new ArrayList<>();
+        DonorEntity donor = donorService.getById(id);
 
-        if (donation != null) result.add(donation);
+        if (donor != null) result.add(donor);
 
         return Response.status(Response.Status.OK).entity(result).build();
     }

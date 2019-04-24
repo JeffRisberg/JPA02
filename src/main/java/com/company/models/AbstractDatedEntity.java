@@ -1,27 +1,30 @@
 package com.company.models;
 
 import lombok.Data;
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.Column;
-import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
-import javax.validation.constraints.NotNull;
-import java.sql.Timestamp;
+import javax.persistence.PrePersist;
+import javax.persistence.PreUpdate;
+import java.util.Date;
 
-@Data
 @MappedSuperclass
+@Data
 public class AbstractDatedEntity extends AbstractEntity {
 
-    @Column(name = "created_at")
-    @NotNull
-    @CreationTimestamp
-    //@ApiModelProperty(required = true, value = "Assigned by framework at Create Time")
-    private Timestamp createdAt;
+    @Column(name = "date_created", nullable = false)
+    private Date dateCreated;
 
-    @Column(name = "updated_at")
-    @UpdateTimestamp
-    //@ApiModelProperty(required = false, value = "Assigned by framework at Update Time")
-    private Timestamp updatedAt;
+    @Column(name = "last_updated", nullable = true)
+    private Date lastUpdated;
+
+    @PrePersist
+    protected void onCreate() {
+        dateCreated = new Date();
+    }
+
+    @PreUpdate
+    protected void onUpdate() {
+        lastUpdated = new Date();
+    }
 }
