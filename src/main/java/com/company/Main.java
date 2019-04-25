@@ -16,7 +16,7 @@ public class Main {
     private static final Logger logger = LoggerFactory.getLogger(Main.class);
 
     public static void main(String[] args) throws Exception {
-        logger.error("main starting");
+        logger.info("main starting");
 
         Server server = new Server(8080);
 
