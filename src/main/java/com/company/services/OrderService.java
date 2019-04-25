@@ -1,6 +1,6 @@
 package com.company.services;
 
-import com.company.common.FilterDesc;
+import com.company.common.FilterDescription;
 import com.company.models.DonorEntity;
 import com.company.services.DAO.DonorDAO;
 
@@ -23,13 +23,13 @@ public class OrderService extends AbstractService<DonorEntity> {
 
     public List<DonorEntity> getAll(int limit, int offset) {
         final AtomicReference<List<DonorEntity>> td = new AtomicReference<>();
-        doWork(em -> td.set(dao.getAll(DonorEntity.class, limit, offset, em)));
+        doWork(em -> td.set(dao.listAll(DonorEntity.class, limit, offset, em)));
         return td.get();
     }
 
-    public List<DonorEntity> getByCriteria(List<FilterDesc> filterDescriptions, int limit, int offset) {
+    public List<DonorEntity> getByCriteria(List<FilterDescription> filterDescriptions, int limit, int offset) {
         final AtomicReference<List<DonorEntity>> td = new AtomicReference<>();
-        doWork(em -> td.set(dao.getByCriteria(DonorEntity.class, filterDescriptions, limit, offset, em)));
+        doWork(em -> td.set(dao.getByCriteria(filterDescriptions, limit, offset, em)));
         return td.get();
     }
 
@@ -51,8 +51,8 @@ public class OrderService extends AbstractService<DonorEntity> {
         return deleted.get();
     }
 
-    public List<DonorEntity> getByName(String name) {
-        final AtomicReference<List<DonorEntity>> td = new AtomicReference<>();
+    public DonorEntity getByName(String name) {
+        final AtomicReference<DonorEntity> td = new AtomicReference<>();
         doWork(em -> td.set(dao.getByName(name, em)));
         return td.get();
     }

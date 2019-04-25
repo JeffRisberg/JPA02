@@ -1,6 +1,7 @@
 package com.company.models;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
@@ -10,6 +11,7 @@ import java.util.Date;
 
 @MappedSuperclass
 @Data
+@EqualsAndHashCode(callSuper = true)
 public class AbstractDatedEntity extends AbstractEntity {
 
     @Column(name = "date_created", nullable = false)

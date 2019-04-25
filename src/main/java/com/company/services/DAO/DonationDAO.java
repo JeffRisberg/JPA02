@@ -1,21 +1,21 @@
 package com.company.services.DAO;
 
-import com.company.domain.Donation;
+import com.company.models.DonationEntity;
 import lombok.NonNull;
 
 import javax.persistence.EntityManager;
 
-public class DonationDAO extends BaseTemplateDAOImpl<Donation> {
+public class DonationDAO extends BaseTemplateDAOImpl<DonationEntity> {
 
     public DonationDAO() {
-        super(Donation.class);
+        super(DonationEntity.class);
     }
 
-    public Donation create(Donation obj, @NonNull EntityManager em) {
+    public DonationEntity create(DonationEntity obj, @NonNull EntityManager em) {
         return super.create(obj, em);
     }
 
-    public Donation getById(Long id, @NonNull EntityManager em) {
+    public DonationEntity getById(Long id, @NonNull EntityManager em) {
         return super.getById(id, em);
     }
 

@@ -5,23 +5,22 @@ import lombok.NonNull;
 
 import javax.persistence.EntityManager;
 
-public class OrderDAO extends BaseDAOImpl {
+public class OrderDAO extends BaseTemplateDAOImpl<OrderEntity> {
 
-    @Override
-    public <T> T create(T obj, Class<T> type, EntityManager em) {
-        return super.create(obj, type, em);
+    public OrderDAO() {
+        super(OrderEntity.class);
     }
 
     public OrderEntity create(OrderEntity obj, @NonNull EntityManager em) {
-        return super.create(obj, OrderEntity.class, em);
+        return super.create(obj, em);
     }
 
     public OrderEntity getById(Long id, @NonNull EntityManager em) {
-        return super.getById(OrderEntity.class, id, em);
+        return super.getById(id, em);
     }
 
     public Boolean delete(Long id, @NonNull EntityManager em) {
-        return super.deleteById(OrderEntity.class, id, em);
+        return super.deleteById(id, em);
     }
 }
 

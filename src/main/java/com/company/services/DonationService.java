@@ -1,6 +1,6 @@
 package com.company.services;
 
-import com.company.common.FilterDesc;
+import com.company.common.FilterDescription;
 import com.company.models.DonationEntity;
 import com.company.services.DAO.DonationDAO;
 
@@ -29,13 +29,13 @@ public class DonationService extends AbstractService<DonationEntity> {
 
     public List<DonationEntity> getAll(int limit, int offset) {
         final AtomicReference<List<DonationEntity>> td = new AtomicReference<>();
-        doWork(em -> td.set(dao.getAll(DonationEntity.class, limit, offset, em)));
+        doWork(em -> td.set(dao.listAll(DonationEntity.class, limit, offset, em)));
         return td.get();
     }
 
-    public List<DonationEntity> getByCriteria(List<FilterDesc> filterDescriptions, int limit, int offset) {
+    public List<DonationEntity> getByCriteria(List<FilterDescription> filterDescriptions, int limit, int offset) {
         final AtomicReference<List<DonationEntity>> td = new AtomicReference<>();
-        doWork(em -> td.set(dao.getByCriteria(DonationEntity.class, filterDescriptions, limit, offset, em)));
+        doWork(em -> td.set(dao.getByCriteria(filterDescriptions, limit, offset, em)));
         return td.get();
     }
 

@@ -9,7 +9,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.github.jengelman.gradle.plugins:shadow:2.0.1'
+        classpath 'com.github.jengelman.gradle.plugins:shadow:2.0.4'
     }
 }
 
@@ -26,11 +26,11 @@ apply plugin: 'com.github.johnrengelman.shadow'
 def jarName = "jpa02-all"
 
 ext {
-    slf4jVersion = '1.7.24'
+    slf4jVersion = '1.7.26'
     lombokVersion = '1.16.20'
     guiceVersion = '4.1.0'
-    jerseyVersion = '2.26'
-    hibernateVersion = '5.3.7.Final'
+    jerseyVersion = '2.28'
+    hibernateVersion = '5.3.10.Final'
 }
 
 assemble.dependsOn shadowJar
@@ -38,7 +38,7 @@ assemble.dependsOn shadowJar
 dependencies {
     compile "org.slf4j:slf4j-api:$slf4jVersion"
     runtime "org.slf4j:slf4j-simple:$slf4jVersion"
-    compile 'org.projectlombok:lombok:1.16.20'
+    compile "org.projectlombok:lombok:$lombokVersion"
 
     compile 'org.apache.commons:commons-collections4:4.0'
     compile 'commons-collections:commons-collections:3.2.2'
@@ -48,8 +48,8 @@ dependencies {
     compile group: 'com.google.inject.extensions', name: 'guice-servlet', version: guiceVersion
     compile group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1.1'
 
-    compile group: 'org.eclipse.jetty', name: 'jetty-server', version: '9.2.0.v20140526'
-    compile group: 'org.eclipse.jetty', name: 'jetty-servlet', version: '9.2.0.v20140526'
+    compile group: 'org.eclipse.jetty', name: 'jetty-server', version: '9.4.17.v20190418'
+    compile group: 'org.eclipse.jetty', name: 'jetty-servlet', version: '9.4.17.v20190418'
 
     compile group: 'org.glassfish.jersey.core', name: 'jersey-common', version: jerseyVersion
     compile group: 'org.glassfish.jersey.core', name: 'jersey-server', version: jerseyVersion
