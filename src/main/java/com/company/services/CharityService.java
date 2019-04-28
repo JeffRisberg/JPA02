@@ -8,6 +8,7 @@ import com.company.services.DAO.CharityDAO;
 import com.google.inject.Inject;
 
 import javax.persistence.Persistence;
+import java.sql.Connection;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicReference;
 
@@ -21,7 +22,8 @@ public class CharityService extends AbstractService<CharityEntity> {
         this.mySQLConnectionFactory = mySQLConnectionFactory;
 
         try {
-            Object x = mySQLConnectionFactory.getConnection();
+            Connection connection = mySQLConnectionFactory.getConnection();
+            System.out.println(connection);
         } catch (Exception e) {
             e.printStackTrace();
         }
