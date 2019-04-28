@@ -20,7 +20,6 @@ public class DBSessionManager {
   private static DBSessionManager instance = null;
   public static final String DEFAULT_TENANT_STORE_DB_NAME = "tenant_store";
 
-
   public static final synchronized DBSessionManager getInstance() {
     if (instance == null) {
       instance = new DBSessionManager();

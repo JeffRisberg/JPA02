@@ -32,13 +32,6 @@ public interface DatabaseConfig {
     String getServer();
 
     /**
-     * Location and port number of the db for the specified cluster.
-     *
-     * @return location and port number of the db for the specified cluster.
-     */
-    String getServer(int clusterNumber);
-
-    /**
      * Default database name.
      *
      * @return default database name.
@@ -51,14 +44,6 @@ public interface DatabaseConfig {
      * @return full JDBC url to connect to the db.
      */
     String getUrl();
-
-    /**
-     * Full JDBC url to connect to the db with a specified cluster number.
-     *
-     * @param clusterNumber the specified cluster number.
-     * @return full JDBC url to connect to the db with a specified cluster number.
-     */
-    String getUrl(int clusterNumber);
 
     int getConnectionMin();
 

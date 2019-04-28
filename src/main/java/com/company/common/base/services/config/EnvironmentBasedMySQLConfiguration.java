@@ -43,11 +43,6 @@ public class EnvironmentBasedMySQLConfiguration implements DatabaseConfig {
     }
 
     @Override
-    public String getServer(final int clusterNumber) {
-        throw new UnsupportedOperationException("This method is unsupported, use the 'getUrl()' method.");
-    }
-
-    @Override
     public String getDb() {
         return this.getFromEnv(MYSQL_DEFAULT_DATABASE);
     }
@@ -59,11 +54,6 @@ public class EnvironmentBasedMySQLConfiguration implements DatabaseConfig {
         } else {
             return this.getFromEnv(MYSQL_URL) + "/" + this.getDb();
         }
-    }
-
-    @Override
-    public String getUrl(final int clusterNumber) {
-        throw new UnsupportedOperationException("A MySQL URL does not have a clusterNumber");
     }
 
     @Override
