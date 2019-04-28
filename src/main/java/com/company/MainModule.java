@@ -1,5 +1,7 @@
 package com.company;
 
+import com.company.common.base.persist.db.ConnectionFactory;
+import com.company.common.base.persist.db.MySQLConnectionFactory;
 import com.google.inject.Scopes;
 import com.google.inject.servlet.ServletModule;
 import com.company.common.base.binding.MySQL;
@@ -21,6 +23,8 @@ public class MainModule extends ServletModule {
         //configs
         bind(DatabaseConfig.class).annotatedWith(MySQL.class).to(EnvironmentBasedMySQLConfiguration.class).in(Scopes.SINGLETON);
         bind(AppConfig.class).to(EnvironmentBasedAppConfig.class).in(Scopes.SINGLETON);
+
+        bind(ConnectionFactory.class).annotatedWith(MySQL.class).to(MySQLConnectionFactory.class).in(Scopes.SINGLETON);
 
         bind(CharityService.class).in(Scopes.SINGLETON);
         bind(DonationService.class).in(Scopes.SINGLETON);

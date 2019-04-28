@@ -1,8 +1,11 @@
 package com.company.services;
 
 import com.company.common.FilterDescription;
+import com.company.common.base.binding.MySQL;
+import com.company.common.base.persist.db.ConnectionFactory;
 import com.company.models.CharityEntity;
 import com.company.services.DAO.CharityDAO;
+import com.google.inject.Inject;
 
 import javax.persistence.Persistence;
 import java.util.List;
@@ -11,7 +14,18 @@ import java.util.concurrent.atomic.AtomicReference;
 public class CharityService extends AbstractService<CharityEntity> {
     private static CharityDAO dao = new CharityDAO();
 
-    public CharityService() {
+    private final ConnectionFactory mySQLConnectionFactory;
+
+    @Inject
+    public CharityService(final @MySQL ConnectionFactory mySQLConnectionFactory) {
+        this.mySQLConnectionFactory = mySQLConnectionFactory;
+
+        try {
+            Object x = mySQLConnectionFactory.getConnection();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
         this.emf = Persistence.createEntityManagerFactory("JPA02");
     }
 

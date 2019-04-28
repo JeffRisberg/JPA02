@@ -2,6 +2,7 @@ package com.company.common.base.services.config;
 
 import com.google.common.annotations.VisibleForTesting;
 import com.company.common.base.config.AppConfig;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.configuration.Configuration;
 import org.apache.commons.configuration.PropertiesConfiguration;
 import org.slf4j.Logger;
@@ -11,8 +12,8 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.function.Function;
 
+@Slf4j
 public class EnvironmentBasedAppConfig implements AppConfig {
-    private static final Logger logger = LoggerFactory.getLogger(EnvironmentBasedAppConfig.class);
 
     @Override
     public String getString(String key, String defaultValue) {
@@ -87,7 +88,7 @@ public class EnvironmentBasedAppConfig implements AppConfig {
 
     /**
      * As environment variables should be a word consisting only of alphanumeric characters and underscores,
-     * and beginning with an alphabetic character or an  underscore. This utility is translating our archaius
+     * and beginning with an alphabetic character or an underscore. This utility is translating our archaius
      * config keys, replacing dots by underscores and putting all the key in uppercase.
      *
      * @param key configuration key
@@ -116,7 +117,7 @@ public class EnvironmentBasedAppConfig implements AppConfig {
     private <T extends Object> T getAndWarn(String key, T defaultValue, Function<String, T> converter) {
         String value = System.getenv(translateKey(key));
         if (value == null) {
-            logger.warn("A default config value, <" + defaultValue + "> was provided for <" + key + ">");
+            log.warn("A default config value, <" + defaultValue + "> was provided for <" + key + ">");
             return defaultValue;
         }
         return converter.apply(value);
@@ -132,7 +133,7 @@ public class EnvironmentBasedAppConfig implements AppConfig {
      * @return a value of type T for the given key
      */
     private <T extends Object> T get(String key, Function<String, T> converter) {
-        logger.info("Retrieving value for <" + key + ">");
+        log.info("Retrieving value for <" + key + ">");
         return converter.apply(System.getenv(translateKey(key)));
     }
 }

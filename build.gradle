@@ -44,6 +44,8 @@ dependencies {
     compile 'commons-collections:commons-collections:3.2.2'
     compile 'commons-configuration:commons-configuration:1.6'
 
+    compile group: 'com.netflix.archaius', name: 'archaius-core', version: '0.7.6'
+    
     compile group: 'com.google.inject', name: 'guice', version: guiceVersion
     compile group: 'com.google.inject.extensions', name: 'guice-servlet', version: guiceVersion
     compile group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1.1'

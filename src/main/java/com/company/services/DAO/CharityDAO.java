@@ -1,6 +1,9 @@
 package com.company.services.DAO;
 
+import com.company.common.base.config.AppConfig;
+import com.company.common.base.config.DatabaseConfig;
 import com.company.models.CharityEntity;
+import com.google.inject.Inject;
 import lombok.NonNull;
 
 import javax.persistence.EntityManager;

@@ -8,27 +8,22 @@ import java.util.Iterator;
  * Application Config.
  */
 public interface AppConfig {
-    @Deprecated
     String getString(String key, String defaultValue);
 
     String getString(String key);
 
-    @Deprecated
     int getInt(String key, int defaultValue);
 
     int getInt(String key);
 
-    @Deprecated
     long getLong(String key, long defaultValue);
 
     long getLong(String key);
 
-    @Deprecated
     double getDouble(String key, double defaultValue);
 
     double getDouble(String key);
 
-    @Deprecated
     boolean getBoolean(String key, boolean defaultValue);
 
     boolean getBoolean(String key);

@@ -20,14 +20,14 @@ public class HelloEndpoint {
 
     @Inject
     public HelloEndpoint(AppConfig appConfig) {
+        this.appConfig = appConfig;
     }
 
     @GET
     public Response handle() {
-        Object x = appConfig.getString("alpha");
-        System.out.println(x);
+        Object alpha = appConfig.getString("ALPHA", "alpha");
 
-        Object results = "Hello There";
+        Object results = "Hello There " + alpha;
         return Response.status(Response.Status.OK).entity(results).build();
     }
 }
