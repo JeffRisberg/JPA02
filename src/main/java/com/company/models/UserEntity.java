@@ -1,6 +1,5 @@
 package com.company.models;
 
-import com.company.xfers.User;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -26,7 +25,7 @@ public class UserEntity extends AbstractDatedEntity {
     @Column(name = "last_name")
     protected String lastName;
 
-    public Optional<UserEntity> create(User user, Session session) {
+    public Optional<UserEntity> create(UserEntity user, Session session) {
         UserEntity userEntity = new UserEntity();
 
         return Optional.of(userEntity);

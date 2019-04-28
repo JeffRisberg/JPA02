@@ -1,6 +1,5 @@
 package com.company.models;
 
-import com.company.xfers.Charity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -30,7 +29,7 @@ public class CharityEntity extends AbstractDatedEntity {
     @Column(name = "description")
     protected String description;
 
-    public Optional<CharityEntity> create(Charity charity, Session session) {
+    public Optional<CharityEntity> create(CharityEntity charity, Session session) {
         CharityEntity charityEntity = new CharityEntity();
 
         return Optional.of(charityEntity);
