@@ -29,6 +29,7 @@ public class MainModule extends AbstractModule {
 
         bind(ConnectionFactory.class).annotatedWith(MySQL.class).to(MySQLConnectionFactory.class).in(Scopes.SINGLETON);
 
+        bind(HelloService.class).in(Scopes.SINGLETON);
         bind(CharityService.class).in(Scopes.SINGLETON);
         bind(DonationService.class).in(Scopes.SINGLETON);
         bind(DonorService.class).in(Scopes.SINGLETON);

@@ -5,9 +5,7 @@ import com.company.common.FilterOperator;
 import com.company.models.CharityEntity;
 import com.company.models.DonationEntity;
 import com.company.models.DonorEntity;
-import com.company.services.CharityService;
-import com.company.services.DonationService;
-import com.company.services.DonorService;
+import com.company.services.*;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
 
@@ -24,9 +22,13 @@ public class Main {
         Injector injector = Guice.createInjector(new MainModule());
 
         // Build through injectors
+        HelloService helloService = injector.getInstance(HelloService.class);
         DonorService donorService = injector.getInstance(DonorService.class);
         CharityService charityService = injector.getInstance(CharityService.class);
         DonationService donationService = injector.getInstance(DonationService.class);
+        OrderService orderService = injector.getInstance(OrderService.class);
+
+        helloService.handle();
 
         // Create two Donors
         DonorEntity a = donorService.create(new DonorEntity("Alice", 22)); // Alice will get an id 1
