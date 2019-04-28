@@ -11,9 +11,6 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Optional;
 
-/**
- * Postgres Connection Factory.
- */
 public class PostgresConnectionFactory extends AbstractConnectionFactory implements ConnectionFactory {
     private final DatabaseConfig dbConfig;
 

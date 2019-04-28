@@ -7,6 +7,7 @@ import com.zaxxer.hikari.HikariDataSource;
 import javax.sql.DataSource;
 
 /**
+ * Enables the creation of a DataSource from a DatabaseConfig.
  */
 abstract class AbstractConnectionFactory {
     /**

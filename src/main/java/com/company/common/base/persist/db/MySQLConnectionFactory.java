@@ -11,9 +11,6 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Optional;
 
-/**
- * MySQL Connection Factory.
- */
 public class MySQLConnectionFactory extends AbstractConnectionFactory implements ConnectionFactory {
     private final DatabaseConfig dbConfig;
 
