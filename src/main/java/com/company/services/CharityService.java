@@ -24,7 +24,7 @@ public class CharityService extends AbstractService<CharityEntity> {
 
     @Inject
     public CharityService(final @MySQL ConnectionFactory mySQLConnectionFactory,
-                          DatabaseConfig databaseConfig) {
+                          final @MySQL DatabaseConfig databaseConfig) {
         this.mySQLConnectionFactory = mySQLConnectionFactory;
         this.databaseConfig = databaseConfig;
 
