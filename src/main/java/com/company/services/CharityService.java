@@ -2,6 +2,7 @@ package com.company.services;
 
 import com.company.common.FilterDescription;
 import com.company.common.base.binding.MySQL;
+import com.company.common.base.config.DatabaseConfig;
 import com.company.common.base.persist.db.ConnectionFactory;
 import com.company.models.CharityEntity;
 import com.company.services.DAO.CharityDAO;
@@ -19,11 +20,15 @@ public class CharityService extends AbstractService<CharityEntity> {
     private static CharityDAO dao = new CharityDAO();
 
     private final ConnectionFactory mySQLConnectionFactory;
+    private DatabaseConfig databaseConfig;
 
     @Inject
-    public CharityService(final @MySQL ConnectionFactory mySQLConnectionFactory) {
+    public CharityService(final @MySQL ConnectionFactory mySQLConnectionFactory,
+                          DatabaseConfig databaseConfig) {
         this.mySQLConnectionFactory = mySQLConnectionFactory;
+        this.databaseConfig = databaseConfig;
 
+        System.out.println(databaseConfig);
         try {
             Connection connection = mySQLConnectionFactory.getConnection();
             System.out.println(connection);
