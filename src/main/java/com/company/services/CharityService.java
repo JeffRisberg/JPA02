@@ -1,67 +1,22 @@
 package com.company.services;
 
 import com.company.common.FilterDescription;
-import com.company.common.base.binding.MySQL;
-import com.company.common.base.config.DatabaseConfig;
-import com.company.common.base.persist.db.ConnectionFactory;
 import com.company.models.CharityEntity;
 import com.company.services.DAO.CharityDAO;
 import com.google.inject.Inject;
-import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
 
-import javax.persistence.Persistence;
-import javax.sql.DataSource;
-import java.sql.Connection;
 import java.util.List;
-import java.util.Properties;
 import java.util.concurrent.atomic.AtomicReference;
 
 public class CharityService extends AbstractService<CharityEntity> {
-    private static CharityDAO dao = new CharityDAO();
 
-    private final ConnectionFactory mySQLConnectionFactory;
-    private DatabaseConfig databaseConfig;
+    private final CharityDAO dao;
 
     @Inject
-    public CharityService(final @MySQL ConnectionFactory mySQLConnectionFactory,
-                          final @MySQL DatabaseConfig databaseConfig) {
-        this.mySQLConnectionFactory = mySQLConnectionFactory;
-        this.databaseConfig = databaseConfig;
-
-        System.out.println(databaseConfig);
-        try {
-            Connection connection = mySQLConnectionFactory.getConnection();
-            System.out.println(connection);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        Properties jpaProperties = new Properties();
-        //jpaProperties.put("hibernate.connection.url", url);
-        //jpaProperties.put("hibernate.connection.username", name);
-        //jpaProperties.put("hibernate.connection.password", password);
-
-        String datasourceName = "database." + "x" + ".name";
-
-        // by default, persistence unit name is same as datasource name
-        // but can be overridden
-        String persistenceUnitName = datasourceName;
-
-        DataSource actualDataSource = new MysqlDataSource();
-        /*
-        //actualDataSource.setDataSourceName("A Data Source name " + datasourceName);
-        actualDataSource.setServerName(dbServer);
-        actualDataSource.setDatabaseName(databaseName);
-        actualDataSource.setUser(name);
-        actualDataSource.setPassword(password);
-        actualDataSource.setMaxConnections(10);
-        */
-
-        jpaProperties.put("hibernate.connection.datasource", actualDataSource);
-        emf = Persistence.createEntityManagerFactory(persistenceUnitName, jpaProperties);
-
-
-        this.emf = Persistence.createEntityManagerFactory("JPA02");
+    public CharityService(final MyEntityManagerFactory myEntityManagerFactory,
+                          final CharityDAO charityDAO) {
+        this.myEntityManagerFactory = myEntityManagerFactory;
+        this.dao = charityDAO;
     }
 
     public CharityEntity create(CharityEntity charity) {

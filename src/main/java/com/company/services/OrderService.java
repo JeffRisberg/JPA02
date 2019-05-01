@@ -1,45 +1,50 @@
 package com.company.services;
 
 import com.company.common.FilterDescription;
-import com.company.models.DonorEntity;
-import com.company.services.DAO.DonorDAO;
+import com.company.models.OrderEntity;
+import com.company.services.DAO.OrderDAO;
+import com.google.inject.Inject;
 
-import javax.persistence.Persistence;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicReference;
 
-public class OrderService extends AbstractService<DonorEntity> {
-    private static DonorDAO dao = new DonorDAO();
+public class OrderService extends AbstractService<OrderEntity> {
 
-    public OrderService() {
-        this.emf = Persistence.createEntityManagerFactory("JPA02");
+    private final MyEntityManagerFactory myEntityManagerFactory;
+    private final OrderDAO dao;
+
+    @Inject
+    public OrderService(final MyEntityManagerFactory myEntityManagerFactory,
+                        final OrderDAO orderDAO) {
+        this.myEntityManagerFactory = myEntityManagerFactory;
+        this.dao = orderDAO;
     }
 
-    public DonorEntity getById(Long id) {
-        final AtomicReference<DonorEntity> td = new AtomicReference<>();
+    public OrderEntity getById(Long id) {
+        final AtomicReference<OrderEntity> td = new AtomicReference<>();
         doWork(em -> td.set(dao.getById(id, em)));
         return td.get();
     }
 
-    public List<DonorEntity> getAll(int limit, int offset) {
-        final AtomicReference<List<DonorEntity>> td = new AtomicReference<>();
-        doWork(em -> td.set(dao.listAll(DonorEntity.class, limit, offset, em)));
+    public List<OrderEntity> getAll(int limit, int offset) {
+        final AtomicReference<List<OrderEntity>> td = new AtomicReference<>();
+        doWork(em -> td.set(dao.listAll(OrderEntity.class, limit, offset, em)));
         return td.get();
     }
 
-    public List<DonorEntity> getByCriteria(List<FilterDescription> filterDescriptions, int limit, int offset) {
-        final AtomicReference<List<DonorEntity>> td = new AtomicReference<>();
+    public List<OrderEntity> getByCriteria(List<FilterDescription> filterDescriptions, int limit, int offset) {
+        final AtomicReference<List<OrderEntity>> td = new AtomicReference<>();
         doWork(em -> td.set(dao.getByCriteria(filterDescriptions, limit, offset, em)));
         return td.get();
     }
 
-    public DonorEntity create(DonorEntity donor) {
-        final AtomicReference<DonorEntity> created = new AtomicReference<>();
+    public OrderEntity create(OrderEntity donor) {
+        final AtomicReference<OrderEntity> created = new AtomicReference<>();
         doWork(em -> created.set(dao.create(donor, em)));
         return created.get();
     }
 
-    public boolean update(DonorEntity updatedEntity) {
+    public boolean update(OrderEntity updatedEntity) {
         final AtomicReference<Boolean> updated = new AtomicReference<>();
         doWork(em -> updated.set(dao.update(updatedEntity, em)));
         return updated.get();
@@ -51,8 +56,8 @@ public class OrderService extends AbstractService<DonorEntity> {
         return deleted.get();
     }
 
-    public DonorEntity getByName(String name) {
-        final AtomicReference<DonorEntity> td = new AtomicReference<>();
+    public OrderEntity getByName(String name) {
+        final AtomicReference<OrderEntity> td = new AtomicReference<>();
         doWork(em -> td.set(dao.getByName(name, em)));
         return td.get();
     }

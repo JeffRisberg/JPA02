@@ -15,10 +15,10 @@ import java.util.function.Consumer;
 @Slf4j
 public abstract class AbstractService<T> {
 
-    static public EntityManagerFactory emf;
+    protected MyEntityManagerFactory myEntityManagerFactory;
 
     public void doWork(Consumer<EntityManager> consumer) {
-        EntityManager em = emf.createEntityManager();
+        EntityManager em = myEntityManagerFactory.createEntityManager();
 
         try {
             EntityTransaction transaction = em.getTransaction();
@@ -37,7 +37,7 @@ public abstract class AbstractService<T> {
     }
 
     public void close() {
-        emf.close();
+        myEntityManagerFactory.close();
     }
 
     public abstract T getById(Long id);

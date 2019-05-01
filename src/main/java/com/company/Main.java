@@ -5,6 +5,7 @@ import com.company.common.FilterOperator;
 import com.company.models.CharityEntity;
 import com.company.models.DonationEntity;
 import com.company.models.DonorEntity;
+import com.company.models.OrderEntity;
 import com.company.services.*;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
@@ -116,11 +117,23 @@ public class Main {
             System.out.println(donation);
         }
 
+        // Create an order
+        OrderEntity order1 = new OrderEntity();
+        order1.setDonor(donor1);
+        List<DonationEntity> donations = new ArrayList<DonationEntity>();
+        donations.add(donation1);
+        order1.setContents(donations);
+
+        //orderService.create(order1);
+
+        //orderService.delete(order1.getId());
+
         donorService.delete(donor1.getId());
         charityService.delete(charity1.getId());
 
         charityService.close();
         donorService.close();
         donationService.close();
+        orderService.close();
     }
 }

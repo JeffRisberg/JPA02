@@ -3,16 +3,21 @@ package com.company.services;
 import com.company.common.FilterDescription;
 import com.company.models.DonorEntity;
 import com.company.services.DAO.DonorDAO;
+import com.google.inject.Inject;
 
-import javax.persistence.Persistence;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicReference;
 
 public class DonorService extends AbstractService<DonorEntity> {
-    private static DonorDAO dao = new DonorDAO();
 
-    public DonorService() {
-        this.emf = Persistence.createEntityManagerFactory("JPA02");
+    private final MyEntityManagerFactory myEntityManagerFactory;
+    private final DonorDAO dao;
+
+    @Inject
+    public DonorService(final MyEntityManagerFactory myEntityManagerFactory,
+                        final DonorDAO donorDAO) {
+        this.myEntityManagerFactory = myEntityManagerFactory;
+        this.dao = donorDAO;
     }
 
     public DonorEntity getById(Long id) {
