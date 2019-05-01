@@ -9,7 +9,6 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicReference;
 
 public class CharityService extends AbstractService<CharityEntity> {
-
     private final CharityDAO dao;
 
     @Inject

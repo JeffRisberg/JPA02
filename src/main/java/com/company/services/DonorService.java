@@ -9,8 +9,6 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicReference;
 
 public class DonorService extends AbstractService<DonorEntity> {
-
-    private final MyEntityManagerFactory myEntityManagerFactory;
     private final DonorDAO dao;
 
     @Inject
