@@ -19,21 +19,21 @@ public class OrderService extends AbstractService<OrderEntity> {
     }
 
     public OrderEntity getById(Long id) {
-        final AtomicReference<OrderEntity> td = new AtomicReference<>();
-        doWork(em -> td.set(dao.getById(id, em)));
-        return td.get();
+        final AtomicReference<OrderEntity> order = new AtomicReference<>();
+        doWork(em -> order.set(dao.getById(id, em)));
+        return order.get();
     }
 
     public List<OrderEntity> getAll(int limit, int offset) {
-        final AtomicReference<List<OrderEntity>> td = new AtomicReference<>();
-        doWork(em -> td.set(dao.listAll(OrderEntity.class, limit, offset, em)));
-        return td.get();
+        final AtomicReference<List<OrderEntity>> orders = new AtomicReference<>();
+        doWork(em -> orders.set(dao.listAll(OrderEntity.class, limit, offset, em)));
+        return orders.get();
     }
 
     public List<OrderEntity> getByCriteria(List<FilterDescription> filterDescriptions, int limit, int offset) {
-        final AtomicReference<List<OrderEntity>> td = new AtomicReference<>();
-        doWork(em -> td.set(dao.getByCriteria(filterDescriptions, limit, offset, em)));
-        return td.get();
+        final AtomicReference<List<OrderEntity>> orders = new AtomicReference<>();
+        doWork(em -> orders.set(dao.getByCriteria(filterDescriptions, limit, offset, em)));
+        return orders.get();
     }
 
     public OrderEntity create(OrderEntity order) {
@@ -55,9 +55,9 @@ public class OrderService extends AbstractService<OrderEntity> {
     }
 
     public OrderEntity getByName(String name) {
-        final AtomicReference<OrderEntity> td = new AtomicReference<>();
-        doWork(em -> td.set(dao.getByName(name, em)));
-        return td.get();
+        final AtomicReference<OrderEntity> order = new AtomicReference<>();
+        doWork(em -> order.set(dao.getByName(name, em)));
+        return order.get();
     }
 }
 
