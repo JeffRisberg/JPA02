@@ -22,7 +22,7 @@ public class OrderEntity extends AbstractDatedEntity {
     private OrderStatus orderStatus;
 
     @ManyToOne
-    @JoinColumn(name = "donor_id")
+    @JoinColumn(name = "donor_id", insertable = false, updatable = false)
     @JsonIgnore
     private DonorEntity donor;
 

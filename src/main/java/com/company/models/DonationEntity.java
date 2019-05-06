@@ -18,7 +18,7 @@ public class DonationEntity extends AbstractDatedEntity {
     private Double amount;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "donor_id")
+    @JoinColumn(name = "donor_id", insertable = false, updatable = false)
     @JsonIgnore
     private DonorEntity donor;
 
@@ -26,7 +26,7 @@ public class DonationEntity extends AbstractDatedEntity {
     private Long donorId;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "charity_id")
+    @JoinColumn(name = "charity_id", insertable = false, updatable = false)
     @JsonIgnore
     private CharityEntity charity;
 
