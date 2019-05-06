@@ -36,9 +36,9 @@ public class OrderService extends AbstractService<OrderEntity> {
         return td.get();
     }
 
-    public OrderEntity create(OrderEntity donor) {
+    public OrderEntity create(OrderEntity order) {
         final AtomicReference<OrderEntity> created = new AtomicReference<>();
-        doWork(em -> created.set(dao.create(donor, em)));
+        doWork(em -> created.set(dao.create(order, em)));
         return created.get();
     }
 

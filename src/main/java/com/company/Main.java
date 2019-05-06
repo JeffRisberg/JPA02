@@ -98,7 +98,9 @@ public class Main {
         // Create a donation
         DonationEntity donation1 = new DonationEntity(45.67);
         donation1.setCharity(charity1);
+        donation1.setCharityId(charity1.getId());
         donation1.setDonor(donor1);
+        donation1.setDonorId(donor1.getId());
 
         donationService.create(donation1);
 
@@ -120,6 +122,8 @@ public class Main {
         // Create an order
         OrderEntity order1 = new OrderEntity();
         order1.setDonor(donor1);
+        order1.setDonorId(donor1.getId());
+
         List<DonationEntity> donations = new ArrayList<DonationEntity>();
         donations.add(donation1);
         order1.setContents(donations);
