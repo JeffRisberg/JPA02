@@ -1,5 +1,6 @@
 package com.company.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -18,13 +19,17 @@ public class OrderEntity extends AbstractDatedEntity {
 
     @Column(name = "order_status")
     @Enumerated(EnumType.STRING)
-    protected OrderStatus orderStatus;
+    private OrderStatus orderStatus;
 
     @ManyToOne
     @JoinColumn(name = "donor_id")
-    protected DonorEntity donor;
+    @JsonIgnore
+    private DonorEntity donor;
+
+    @Column(name = "donor_id")
+    private Long donorId;
 
     @OneToMany()
     @JoinColumn(name = "donation_id")
-    protected List<DonationEntity> contents;
+    private List<DonationEntity> contents;
 }
