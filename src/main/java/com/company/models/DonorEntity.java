@@ -1,5 +1,6 @@
 package com.company.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
@@ -26,6 +27,7 @@ public class DonorEntity extends AbstractDatedEntity {
     private int age;
 
     @OneToMany(mappedBy = "donor", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnore
     private List<DonationEntity> donations = new ArrayList<DonationEntity>();
 
     public DonorEntity(String name, int age) {

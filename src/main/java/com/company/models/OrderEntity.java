@@ -29,7 +29,7 @@ public class OrderEntity extends AbstractDatedEntity {
     @Column(name = "donor_id")
     private Long donorId;
 
-    @OneToMany()
+    @OneToMany(fetch = FetchType.LAZY)
     @JoinColumn(name = "donation_id")
     private List<DonationEntity> contents;
 }
