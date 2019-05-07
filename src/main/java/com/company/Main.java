@@ -128,9 +128,9 @@ public class Main {
         donations.add(donation1);
         order1.setContents(donations);
 
-        orderService.create(order1);
+        //orderService.create(order1);
 
-        orderService.delete(order1.getId());
+        //orderService.delete(order1.getId());
 
         donorService.delete(donor1.getId());
         charityService.delete(charity1.getId());
