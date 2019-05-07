@@ -27,7 +27,8 @@ def jarName = "jpa02-all"
 
 ext {
     slf4jVersion = '1.7.26'
-    lombokVersion = '1.16.20'
+    projectLombokVersion = '1.16.20'
+    archaiusVersion = '0.7.6'
     guiceVersion = '4.2.2'
     jettyVersion = '9.4.17.v20190418'
     jerseyVersion = '2.28'
@@ -41,17 +42,21 @@ assemble.dependsOn shadowJar
 dependencies {
     compile "org.slf4j:slf4j-api:$slf4jVersion"
     runtime "org.slf4j:slf4j-simple:$slf4jVersion"
-    compile "org.projectlombok:lombok:$lombokVersion"
+    compile "org.projectlombok:lombok:$projectLombokVersion"
 
     compile 'org.apache.commons:commons-collections4:4.0'
     compile 'commons-collections:commons-collections:3.2.2'
     compile 'commons-configuration:commons-configuration:1.6'
+    compile "com.netflix.archaius:archaius-core:$archaiusVersion"
 
-    compile group: 'com.netflix.archaius', name: 'archaius-core', version: '0.7.6'
-    
+    compile group: 'javax.el', name: 'javax.el-api', version: '3.0.0'
+    compile group: 'org.glassfish.web', name: 'javax.el', version: '3.0.0'
+
+    compile group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1.1'
+    compile group: 'com.google.code.gson', name: 'gson', version: '2.8.2'
+
     compile group: 'com.google.inject', name: 'guice', version: guiceVersion
     compile group: 'com.google.inject.extensions', name: 'guice-servlet', version: guiceVersion
-    compile group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1.1'
 
     compile group: 'org.eclipse.jetty', name: 'jetty-server', version: jettyVersion
     compile group: 'org.eclipse.jetty', name: 'jetty-servlet', version: jettyVersion
