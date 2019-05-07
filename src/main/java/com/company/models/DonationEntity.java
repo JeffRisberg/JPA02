@@ -33,6 +33,11 @@ public class DonationEntity extends AbstractDatedEntity {
     @Column(name = "charity_id")
     private Long charityId;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "order_id")
+    @JsonIgnore
+    private OrderEntity order;
+
     public DonationEntity(Double amount) {
         this.setId(null);
         this.amount = amount;

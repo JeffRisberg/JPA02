@@ -29,7 +29,17 @@ public class OrderEntity extends AbstractDatedEntity {
     @Column(name = "donor_id")
     private Long donorId;
 
-    @OneToMany(fetch = FetchType.LAZY)
-    @JoinColumn(name = "donation_id")
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnore
     private List<DonationEntity> contents;
+
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+
+        sb.append("Order[date=" + getDateCreated());
+        sb.append(", forDonor=" + donorId);
+        sb.append("]");
+
+        return sb.toString();
+    }
 }
