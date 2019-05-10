@@ -25,12 +25,13 @@ public class Main {
         // Build through injectors
         HelloService helloService = injector.getInstance(HelloService.class);
         DonorService donorService = injector.getInstance(DonorService.class);
-        CharityService charityService = injector.getInstance(CharityService.class);
-        DonationService donationService = injector.getInstance(DonationService.class);
-        OrderService orderService = injector.getInstance(OrderService.class);
+        //CharityService charityService = injector.getInstance(CharityService.class);
+        //DonationService donationService = injector.getInstance(DonationService.class);
+        //OrderService orderService = injector.getInstance(OrderService.class);
 
         helloService.handle();
 
+        /*
         // Create two Donors
         DonorEntity a = donorService.create(new DonorEntity("Alice", 22)); // Alice will get an id 1
         DonorEntity b = donorService.create(new DonorEntity("Bob", 20)); // Bob will get an id 2
@@ -139,5 +140,6 @@ public class Main {
         donorService.close();
         donationService.close();
         orderService.close();
+        */
     }
 }

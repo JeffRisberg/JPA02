@@ -5,8 +5,6 @@ import com.netflix.config.ConfigurationManager;
 import java.util.Optional;
 
 /**
- * @author Enriko Aryanto
- * @since 12/8/15.
  */
 public class Environment {
     private static final String PROD    = "prod";

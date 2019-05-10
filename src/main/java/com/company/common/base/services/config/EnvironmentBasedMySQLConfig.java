@@ -2,17 +2,9 @@ package com.company.common.base.services.config;
 
 import com.company.common.base.config.DatabaseConfig;
 
-import static com.company.common.base.services.constants.EnvironmentKeys.MYSQL_CONNECTION_MAXIMUM_CONNECTIONS;
-import static com.company.common.base.services.constants.EnvironmentKeys.MYSQL_CONNECTION_MAX_LIFETIME;
-import static com.company.common.base.services.constants.EnvironmentKeys.MYSQL_CONNECTION_MINIMUM_IDLE;
-import static com.company.common.base.services.constants.EnvironmentKeys.MYSQL_CONNECTION_TIMEOUT;
-import static com.company.common.base.services.constants.EnvironmentKeys.MYSQL_DEFAULT_DATABASE;
-import static com.company.common.base.services.constants.EnvironmentKeys.MYSQL_IDLE_TIMEOUT;
-import static com.company.common.base.services.constants.EnvironmentKeys.MYSQL_PASSWORD;
-import static com.company.common.base.services.constants.EnvironmentKeys.MYSQL_URL;
-import static com.company.common.base.services.constants.EnvironmentKeys.MYSQL_USER;
+import static com.company.common.base.services.constants.EnvironmentKeys.*;
 
-public class EnvironmentBasedMySQLConfiguration implements DatabaseConfig {
+public class EnvironmentBasedMySQLConfig implements DatabaseConfig {
 
     private String getFromEnv(String field) {
         String result = System.getenv(field);
@@ -23,8 +15,11 @@ public class EnvironmentBasedMySQLConfiguration implements DatabaseConfig {
     }
 
     @Override
+    public String getDialect() { return this.getFromEnv(MYSQL_DIALECT); }
+
+    @Override
     public String getDriverClass() {
-        return "com.mysql.jdbc.Driver";
+        return this.getFromEnv(MYSQL_DRIVER_CLASS);
     }
 
     @Override
@@ -44,6 +39,7 @@ public class EnvironmentBasedMySQLConfiguration implements DatabaseConfig {
 
     @Override
     public String getDb() {
+        String x = this.getFromEnv(MYSQL_DEFAULT_DATABASE);
         return this.getFromEnv(MYSQL_DEFAULT_DATABASE);
     }
 

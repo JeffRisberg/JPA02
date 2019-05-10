@@ -9,6 +9,8 @@ public class EnvironmentKeys {
     }
 
     // MySQL configuration environment keys
+    public static final String MYSQL_DIALECT                        = "MYSQL_DIALECT";
+    public static final String MYSQL_DRIVER_CLASS                   = "MYSQL_DRIVER_CLASS";
     public static final String MYSQL_USER                           = "MYSQL_USER";
     public static final String MYSQL_PASSWORD                       = "MYSQL_PASSWORD";
     public static final String MYSQL_CONNECTION_MINIMUM_IDLE        = "MYSQL_CONNECTION_MINIMUM_IDLE";

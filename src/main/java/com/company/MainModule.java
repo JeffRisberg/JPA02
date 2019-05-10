@@ -3,10 +3,8 @@ package com.company;
 import com.company.common.base.binding.MySQL;
 import com.company.common.base.config.AppConfig;
 import com.company.common.base.config.DatabaseConfig;
-import com.company.common.base.persist.db.ConnectionFactory;
-import com.company.common.base.persist.db.MySQLConnectionFactory;
 import com.company.common.base.services.config.ArchaiusAppConfig;
-import com.company.common.base.services.config.EnvironmentBasedMySQLConfiguration;
+import com.company.common.base.services.config.MySQLDatabaseConfig;
 import com.company.services.*;
 import com.google.inject.AbstractModule;
 import com.google.inject.Scopes;
@@ -24,10 +22,7 @@ public class MainModule extends AbstractModule {
         bind(AppConfig.class).to(ArchaiusAppConfig.class).in(Scopes.SINGLETON);
 
         // database configs
-        bind(DatabaseConfig.class).annotatedWith(MySQL.class).to(EnvironmentBasedMySQLConfiguration.class).in(Scopes.SINGLETON);
-
-        // connection factories
-        bind(ConnectionFactory.class).annotatedWith(MySQL.class).to(MySQLConnectionFactory.class).in(Scopes.SINGLETON);
+        bind(DatabaseConfig.class).annotatedWith(MySQL.class).to(MySQLDatabaseConfig.class).in(Scopes.SINGLETON);
 
         // entityManagerFactory
         bind(MyEntityManagerFactory.class).in(Scopes.SINGLETON);

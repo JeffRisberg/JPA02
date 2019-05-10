@@ -13,7 +13,7 @@ public class HelloService {
     }
 
     public void handle() {
-        Object alpha = appConfig.getString("ALPHA", "alpha");
+        Object alpha = appConfig.getString("alpha", "hello");
 
         Object results = "Hello There " + alpha;
         System.out.println(results);

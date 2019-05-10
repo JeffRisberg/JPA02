@@ -12,9 +12,6 @@ import java.util.Optional;
  * (Logback) in our compile scope. If we want to open source some of our codes, we will need to break
  * this logging dependency (and possibly config as well) into a separate module and add that module in
  * the runtime scope.
- *
- * @author Enriko Aryanto
- * @since 2/4/16.
  */
 public class LoggingConfig {
 

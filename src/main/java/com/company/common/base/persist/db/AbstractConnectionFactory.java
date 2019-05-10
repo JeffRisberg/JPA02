@@ -31,12 +31,12 @@ abstract class AbstractConnectionFactory {
             hcfg.setJdbcUrl(url);
             hcfg.setUsername(config.getUsername());
             hcfg.setPassword(config.getPassword());
-            //hcfg.setMinimumIdle(config.getConnectionMin());
-            //hcfg.setMaximumPoolSize(config.getConnectionMax());
-            //hcfg.setConnectionTimeout(config.getConnectionTimeoutMs());
-            //hcfg.setIdleTimeout(config.getConnectionIdleTimeoutMs());
-            //hcfg.setMaxLifetime(config.getConnectionMaxLifetimeMs());
-            //hcfg.setConnectionTestQuery(config.getConnectionTestQuery());
+            hcfg.setMinimumIdle(config.getConnectionMin());
+            hcfg.setMaximumPoolSize(config.getConnectionMax());
+            hcfg.setConnectionTimeout(config.getConnectionTimeoutMs());
+            hcfg.setIdleTimeout(config.getConnectionIdleTimeoutMs());
+            hcfg.setMaxLifetime(config.getConnectionMaxLifetimeMs());
+            hcfg.setConnectionTestQuery(config.getConnectionTestQuery());
 
             // used to monitor the DataSource
             hcfg.setRegisterMbeans(true);

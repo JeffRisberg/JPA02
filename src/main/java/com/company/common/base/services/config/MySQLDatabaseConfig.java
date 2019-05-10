@@ -6,6 +6,7 @@ import com.google.inject.Inject;
 /**
  */
 public class MySQLDatabaseConfig extends AbstractDatabaseConfig {
+
     @Inject
     MySQLDatabaseConfig(AppConfig appConfig) {
         super(appConfig, "mysql");
@@ -17,6 +18,6 @@ public class MySQLDatabaseConfig extends AbstractDatabaseConfig {
     }
 
     static String buildMySQLUrl(String server, String db) {
-        return String.format("jdbc:mysql://%s/%s?allowMultiQueries=true&characterEncoding=utf8", server, db);
+        return String.format("jdbc:mysql://%s/%s?zeroDateTimeBehavior=convertToNull", server, db);
     }
 }

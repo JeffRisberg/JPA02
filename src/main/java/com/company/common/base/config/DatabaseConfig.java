@@ -4,6 +4,13 @@ package com.company.common.base.config;
  */
 public interface DatabaseConfig {
     /**
+     * Hibernate dialect.
+     *
+     * @return JDBC dialect name.
+     */
+    String getDialect();
+
+    /**
      * JDBC driver full class name.
      *
      * @return JDBC driver full class name.
