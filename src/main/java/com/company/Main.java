@@ -31,7 +31,6 @@ public class Main {
 
         helloService.handle();
 
-        /*
         // Create two Donors
         DonorEntity a = donorService.create(new DonorEntity("Alice", 22)); // Alice will get an id 1
         DonorEntity b = donorService.create(new DonorEntity("Bob", 20)); // Bob will get an id 2
@@ -66,6 +65,7 @@ public class Main {
         // Delete Charlie from the database
         donorService.delete(c.getId());
 
+ /*
         // Create two charities
         CharityEntity redCross = charityService.create(new CharityEntity("Red Cross", "53-0196605", ""));
         CharityEntity amCancer = charityService.create(new CharityEntity("American Cancer Society", "13-1788491", ""));
@@ -136,10 +136,10 @@ public class Main {
         donorService.delete(donor1.getId());
         charityService.delete(charity1.getId());
 
-        charityService.close();
-        donorService.close();
-        donationService.close();
         orderService.close();
+        charityService.close();
+        donationService.close();
         */
+        donorService.close();
     }
 }
