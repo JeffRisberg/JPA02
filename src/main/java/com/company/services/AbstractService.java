@@ -3,7 +3,6 @@ package com.company.services;
 import lombok.extern.slf4j.Slf4j;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import java.util.List;
 import java.util.function.Consumer;
@@ -17,7 +16,8 @@ public abstract class AbstractService<T> {
 
     protected MyEntityManagerFactory myEntityManagerFactory;
 
-    public void doWork(Consumer<EntityManager> consumer) {
+    // true indicates success
+    public boolean doWork(Consumer<EntityManager> consumer) {
         EntityManager em = myEntityManagerFactory.createEntityManager();
 
         try {
@@ -27,9 +27,11 @@ public abstract class AbstractService<T> {
                 // call consumer
                 consumer.accept(em);
                 transaction.commit();
+                return true;
             } catch (Exception e) {
                 log.error("Failed to execute transaction", e);
                 transaction.rollback();
+                return false;
             }
         } finally {
             em.close();
@@ -43,5 +45,4 @@ public abstract class AbstractService<T> {
     public abstract T getById(Long id);
 
     public abstract List<T> getAll(int limit, int offset);
-
 }

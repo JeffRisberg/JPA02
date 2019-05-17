@@ -44,14 +44,14 @@ public class DonationService extends AbstractService<DonationEntity> {
 
     public boolean update(DonationEntity updatedEntity) {
         final AtomicReference<Boolean> updated = new AtomicReference<>();
-        doWork(em -> updated.set(dao.update(updatedEntity, em)));
-        return updated.get();
+        boolean success = doWork(em -> updated.set(dao.update(updatedEntity, em)));
+        return success && updated.get();
     }
 
     public boolean delete(Long id) {
         final AtomicReference<Boolean> deleted = new AtomicReference<>();
-        doWork(em -> deleted.set(dao.delete(id, em)));
-        return deleted.get();
+        boolean success = doWork(em -> deleted.set(dao.delete(id, em)));
+        return success && deleted.get();
     }
 }
 
