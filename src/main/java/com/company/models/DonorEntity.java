@@ -26,7 +26,7 @@ public class DonorEntity extends AbstractDatedEntity {
     @Column(name = "age", nullable = false)
     private int age;
 
-    @OneToMany(mappedBy = "donor", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "donor")
     @JsonIgnore
     private List<DonationEntity> donations = new ArrayList<DonationEntity>();
 
