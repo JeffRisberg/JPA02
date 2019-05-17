@@ -43,6 +43,15 @@ public class DonationEntity extends AbstractDatedEntity {
         this.amount = amount;
     }
 
+    public DonationEntity(Double amount, DonorEntity donor, long donorId, CharityEntity charity, long charityId) {
+        this.setId(null);
+        this.amount = amount;
+        this.donor = donor;
+        this.donorId = donorId;
+        this.charity = charity;
+        this.charityId = charityId;
+    }
+
     public String toString() {
         StringBuilder sb = new StringBuilder();
 

@@ -2,10 +2,7 @@ package com.company;
 
 import com.company.common.FilterDescription;
 import com.company.common.FilterOperator;
-import com.company.models.CharityEntity;
-import com.company.models.DonationEntity;
-import com.company.models.DonorEntity;
-import com.company.models.OrderEntity;
+import com.company.models.*;
 import com.company.services.*;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
@@ -25,9 +22,9 @@ public class Main {
         // Build through injectors
         HelloService helloService = injector.getInstance(HelloService.class);
         DonorService donorService = injector.getInstance(DonorService.class);
-        //CharityService charityService = injector.getInstance(CharityService.class);
-        //DonationService donationService = injector.getInstance(DonationService.class);
-        //OrderService orderService = injector.getInstance(OrderService.class);
+        CharityService charityService = injector.getInstance(CharityService.class);
+        DonationService donationService = injector.getInstance(DonationService.class);
+        OrderService orderService = injector.getInstance(OrderService.class);
 
         helloService.handle();
 
@@ -65,7 +62,6 @@ public class Main {
         // Delete Charlie from the database
         donorService.delete(c.getId());
 
- /*
         // Create two charities
         CharityEntity redCross = charityService.create(new CharityEntity("Red Cross", "53-0196605", ""));
         CharityEntity amCancer = charityService.create(new CharityEntity("American Cancer Society", "13-1788491", ""));
@@ -91,19 +87,16 @@ public class Main {
         charityService.delete(amCancer.getId());
 
         // Create a charity
-        CharityEntity charity1 = charityService.create(new CharityEntity("Red Cross", "53-0196605", ""));
+        CharityEntity charity1 = charityService.create
+                (new CharityEntity("Red Cross", "53-0196605", ""));
 
         // Create a donor
-        DonorEntity donor1 = donorService.create(new DonorEntity("Alice", 22));
+        DonorEntity donor1 = donorService.create
+                (new DonorEntity("Alice", 22));
 
         // Create a donation
-        DonationEntity donation1 = new DonationEntity(45.67);
-        donation1.setCharity(charity1);
-        donation1.setCharityId(charity1.getId());
-        donation1.setDonor(donor1);
-        donation1.setDonorId(donor1.getId());
-
-        donationService.create(donation1);
+        DonationEntity donation1 = donationService.create
+                (new DonationEntity(45.67, donor1, donor1.getId(), charity1, charity1.getId()));
 
         // Fetch donations
         List<DonationEntity> donations1 = donationService.getAll(999, 0);
@@ -111,35 +104,25 @@ public class Main {
             System.out.println(donation);
         }
 
-        // Delete a donation
-        donationService.delete(donation1.getId());
-
-        // Fetch donations
-        List<DonationEntity> donations2 = donationService.getAll(999, 0);
-        for (DonationEntity donation : donations2) {
-            System.out.println(donation);
-        }
-
         // Create an order
-        OrderEntity order1 = new OrderEntity();
-        order1.setDonor(donor1);
-        order1.setDonorId(donor1.getId());
-
         List<DonationEntity> donations = new ArrayList<DonationEntity>();
         donations.add(donation1);
-        order1.setContents(donations);
 
-        //orderService.create(order1);
+        OrderEntity order1 = orderService.create(new OrderEntity(OrderStatus.Active, donor1, donor1.getId()));
+        order1.addDonation(donation1);
 
-        //orderService.delete(order1.getId());
+        System.out.println(order1);
 
+        orderService.delete(order1.getId());
+
+        donationService.delete(donation1.getId());
         donorService.delete(donor1.getId());
         charityService.delete(charity1.getId());
 
         orderService.close();
-        charityService.close();
         donationService.close();
-        */
+
+        charityService.close();
         donorService.close();
     }
 }

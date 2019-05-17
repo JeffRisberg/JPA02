@@ -7,6 +7,7 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -31,13 +32,26 @@ public class OrderEntity extends AbstractDatedEntity {
 
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonIgnore
-    private List<DonationEntity> contents;
+    private List<DonationEntity> contents = new ArrayList<DonationEntity>();
+
+    public OrderEntity(OrderStatus orderStatus, DonorEntity donor, long donorId) {
+        this.orderStatus = orderStatus;
+        this.donor = donor;
+        this.donorId = donorId;
+    }
+
+    public void addDonation(DonationEntity donationEntity) {
+        contents.add(donationEntity);
+        donationEntity.setOrder(this);
+    }
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
 
         sb.append("Order[date=" + getDateCreated());
-        sb.append(", forDonor=" + donorId);
+        sb.append(", orderStatus=" + orderStatus);
+        sb.append(", donorId=" + donorId);
+        sb.append(", donationCount=" + contents.size());
         sb.append("]");
 
         return sb.toString();

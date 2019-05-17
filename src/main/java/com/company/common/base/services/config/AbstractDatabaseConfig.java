@@ -47,12 +47,12 @@ abstract class AbstractDatabaseConfig implements DatabaseConfig {
 
     @Override
     public int getConnectionMin() {
-        return appConfig.getInt(prefix + ".connection.min", 0);
+        return appConfig.getInt(prefix + ".connection.min", 1);
     }
 
     @Override
     public int getConnectionMax() {
-        return appConfig.getInt(prefix + ".connection.max", 1);
+        return appConfig.getInt(prefix + ".connection.max", 2);
     }
 
     @Override
