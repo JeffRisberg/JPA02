@@ -15,23 +15,23 @@ import com.google.inject.Scopes;
  */
 public class MainModule extends AbstractModule {
 
-    protected void configure() {
+  protected void configure() {
 
-        //app configs
-        //bind(AppConfig.class).to(EnvironmentBasedAppConfig.class).in(Scopes.SINGLETON);
-        bind(AppConfig.class).to(ArchaiusAppConfig.class).in(Scopes.SINGLETON);
+    //app configs
+    //bind(AppConfig.class).to(EnvironmentBasedAppConfig.class).in(Scopes.SINGLETON);
+    bind(AppConfig.class).to(ArchaiusAppConfig.class).in(Scopes.SINGLETON);
 
-        // database configs
-        bind(DatabaseConfig.class).annotatedWith(MySQL.class).to(MySQLDatabaseConfig.class).in(Scopes.SINGLETON);
+    // database configs
+    bind(DatabaseConfig.class).annotatedWith(MySQL.class).to(MySQLDatabaseConfig.class).in(Scopes.SINGLETON);
 
-        // entityManagerFactory
-        bind(MyEntityManagerFactory.class).in(Scopes.SINGLETON);
+    // entityManagerFactory
+    bind(MyEntityManagerFactory.class).in(Scopes.SINGLETON);
 
-        // services
-        bind(HelloService.class).in(Scopes.SINGLETON);
-        bind(CharityService.class).in(Scopes.SINGLETON);
-        bind(DonationService.class).in(Scopes.SINGLETON);
-        bind(DonorService.class).in(Scopes.SINGLETON);
-        bind(OrderService.class).in(Scopes.SINGLETON);
-    }
+    // services
+    bind(HelloService.class).in(Scopes.SINGLETON);
+    bind(CharityService.class).in(Scopes.SINGLETON);
+    bind(DonationService.class).in(Scopes.SINGLETON);
+    bind(DonorService.class).in(Scopes.SINGLETON);
+    bind(OrderService.class).in(Scopes.SINGLETON);
+  }
 }
