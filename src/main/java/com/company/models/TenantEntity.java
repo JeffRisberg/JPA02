@@ -17,6 +17,6 @@ import javax.persistence.Table;
 @EqualsAndHashCode(callSuper = true)
 public class TenantEntity extends AbstractDatedEntity {
 
-    @Column(name = "name")
-    protected String name;
+  @Column(name = "name")
+  protected String name;
 }

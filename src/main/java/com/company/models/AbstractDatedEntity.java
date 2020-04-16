@@ -14,19 +14,19 @@ import java.util.Date;
 @EqualsAndHashCode(callSuper = true)
 public class AbstractDatedEntity extends AbstractEntity {
 
-    @Column(name = "date_created", nullable = false)
-    private Date dateCreated;
+  @Column(name = "date_created", nullable = false)
+  private Date dateCreated;
 
-    @Column(name = "last_updated", nullable = true)
-    private Date lastUpdated;
+  @Column(name = "last_updated", nullable = true)
+  private Date lastUpdated;
 
-    @PrePersist
-    protected void onCreate() {
-        dateCreated = new Date();
-    }
+  @PrePersist
+  protected void onCreate() {
+    dateCreated = new Date();
+  }
 
-    @PreUpdate
-    protected void onUpdate() {
-        lastUpdated = new Date();
-    }
+  @PreUpdate
+  protected void onUpdate() {
+    lastUpdated = new Date();
+  }
 }
