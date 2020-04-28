@@ -29,8 +29,8 @@ ext {
   slf4jVersion = '1.7.26'
   projectLombokVersion = '1.16.20'
   archaiusVersion = '0.7.7'
-  guiceVersion = '4.2.2'
-  jacksonVersion = '2.10.2'
+  guiceVersion = '4.2.3'
+  jacksonVersion = '2.10.3'
   hibernateVersion = '5.4.14.Final'
   junitVersion = '4.13'
 }

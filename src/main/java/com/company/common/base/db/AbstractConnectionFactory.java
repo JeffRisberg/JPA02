@@ -1,4 +1,4 @@
-package com.company.common.base.persist.db;
+package com.company.common.base.db;
 
 import com.company.common.base.config.DatabaseConfig;
 import com.zaxxer.hikari.HikariConfig;

@@ -1,4 +1,4 @@
-package com.company.common;
+package com.company.common.base.sql;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;

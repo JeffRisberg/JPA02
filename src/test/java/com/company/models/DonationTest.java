@@ -5,13 +5,13 @@ import org.junit.Test;
 import static org.junit.Assert.assertTrue;
 
 public class DonationTest {
-    @Test
-    public void test1() {
-        DonationEntity donation = new DonationEntity();
+  @Test
+  public void test1() {
+    DonationEntity donation = new DonationEntity();
 
-        donation.setId(1L);
-        donation.setAmount(56.78);
+    donation.setId(1L);
+    donation.setAmount(56.78);
 
-        assertTrue(donation != null);
-    }
+    assertTrue(donation != null);
+  }
 }
