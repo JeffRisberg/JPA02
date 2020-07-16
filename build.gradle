@@ -31,7 +31,7 @@ ext {
   archaiusVersion = '0.7.7'
   guiceVersion = '4.2.3'
   jacksonVersion = '2.10.3'
-  hibernateVersion = '5.4.14.Final'
+  hibernateVersion = '5.4.18.Final'
   junitVersion = '4.13'
 }
 
