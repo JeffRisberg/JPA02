@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/JPA02.iml" filepath="$PROJECT_DIR$/JPA02.iml" group="JPA02" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/JPA02_main.iml" filepath="$PROJECT_DIR$/.idea/modules/JPA02_main.iml" group="JPA02" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/JPA02_test.iml" filepath="$PROJECT_DIR$/.idea/modules/JPA02_test.iml" group="JPA02" />
+      <module fileurl="file://$PROJECT_DIR$/JPA02.iml" filepath="$PROJECT_DIR$/JPA02.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/JPA02.main.iml" filepath="$PROJECT_DIR$/.idea/modules/JPA02.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/JPA02.test.iml" filepath="$PROJECT_DIR$/.idea/modules/JPA02.test.iml" />
     </modules>
   </component>
 </project>
