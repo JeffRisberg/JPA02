@@ -19,15 +19,15 @@ import java.util.Optional;
 @EqualsAndHashCode(callSuper = true)
 public class UserEntity extends AbstractDatedEntity {
 
-    @Column(name = "first_name")
-    protected String firstName;
+  @Column(name = "first_name")
+  protected String firstName;
 
-    @Column(name = "last_name")
-    protected String lastName;
+  @Column(name = "last_name")
+  protected String lastName;
 
-    public Optional<UserEntity> create(UserEntity user, Session session) {
-        UserEntity userEntity = new UserEntity();
+  public Optional<UserEntity> create(UserEntity user, Session session) {
+    UserEntity userEntity = new UserEntity();
 
-        return Optional.of(userEntity);
-    }
+    return Optional.of(userEntity);
+  }
 }

@@ -1,14 +1,17 @@
 package com.company.models;
 
-import com.company.common.JpaConverterJson;
-import com.company.common.JpaConverterJsonArray;
+import com.company.common.base.sql.JpaConverterJson;
+import com.company.common.base.sql.JpaConverterJsonArray;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.*;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Convert;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.sql.Timestamp;
 
 @Data

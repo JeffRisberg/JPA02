@@ -5,14 +5,14 @@ import org.junit.Test;
 import static org.junit.Assert.assertTrue;
 
 public class UserTest {
-    @Test
-    public void test1() {
-        UserEntity user = new UserEntity();
+  @Test
+  public void test1() {
+    UserEntity user = new UserEntity();
 
-        user.setId(1L);
-        user.setFirstName("Jack");
-        user.setLastName("Smith");
+    user.setId(1L);
+    user.setFirstName("Jack");
+    user.setLastName("Smith");
 
-        assertTrue(user != null);
-    }
+    assertTrue(user != null);
+  }
 }

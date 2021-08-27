@@ -1,8 +1,6 @@
-package com.company.common.base.persist.db;
+package com.company.common.base.db;
 
-import com.company.common.base.binding.Postgres;
 import com.company.common.base.config.DatabaseConfig;
-import com.google.inject.Inject;
 import com.zaxxer.hikari.HikariDataSource;
 
 import javax.sql.DataSource;
@@ -11,7 +9,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Optional;
 
-public class PostgresConnectionFactory extends AbstractConnectionFactory implements ConnectionFactory {
+public class MySQLConnectionFactory extends AbstractConnectionFactory implements ConnectionFactory {
     private final DatabaseConfig dbConfig;
 
     /**
@@ -19,9 +17,7 @@ public class PostgresConnectionFactory extends AbstractConnectionFactory impleme
      */
     private DataSource dataSource;
 
-    @Inject
-    PostgresConnectionFactory(@Postgres DatabaseConfig dbConfig) {
-        //super(dataSourceMonitor);
+    public MySQLConnectionFactory(DatabaseConfig dbConfig) {
         this.dbConfig = dbConfig;
     }
 
@@ -32,11 +28,11 @@ public class PostgresConnectionFactory extends AbstractConnectionFactory impleme
      */
     @Override
     public DBType getDBType() {
-        return DBType.POSTGRES;
+        return DBType.MYSQL;
     }
 
     /**
-     * Get or create the connection pool.
+     * Get or create the MySQL connection pool.
      *
      * @return DataSource
      */
@@ -56,10 +52,10 @@ public class PostgresConnectionFactory extends AbstractConnectionFactory impleme
     }
 
     /**
-     * Get a Postgres Connection from the connection pool. If the connection pool has not been created,
+     * Get a MySQL Connection from the connection pool. If the connection pool has not been created,
      * it will be created.
      *
-     * @return Postgres Connection.
+     * @return MySQL Connection.
      * @throws SQLException
      */
     @Override
@@ -68,9 +64,9 @@ public class PostgresConnectionFactory extends AbstractConnectionFactory impleme
     }
 
     /**
-     * Get an un-pooled Postgres Connection.
+     * Get an un-pooled MySQL Connection.
      *
-     * @return Postgres Connection.
+     * @return MySQL Connection.
      * @throws SQLException
      */
     @Override
@@ -79,12 +75,12 @@ public class PostgresConnectionFactory extends AbstractConnectionFactory impleme
     }
 
     /**
-     * Get a Postgres Connection. If the specified useConnectionPool is true, the Connection will be retrieved
+     * Get a MySQL Connection. If the specified useConnectionPool is true, the Connection will be retrieved
      * from the connection pool (if the connection pool has not been created, it will be created).
      * Otherwise, a fresh un-pooled Connection will be returned.
      *
      * @param useConnectionPool if true, the Connection is returned from the connection pool.
-     * @return Postgres Connection.
+     * @return MySQL Connection.
      * @throws SQLException
      */
     @Override
