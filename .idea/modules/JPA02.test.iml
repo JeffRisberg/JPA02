@@ -71,5 +71,4 @@
     <orderEntry type="library" name="Gradle: org.objenesis:objenesis:2.1" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Gradle: org.slf4j:slf4j-simple:1.7.26" level="project" />
   </component>
-  <component name="TestModuleProperties" production-module="JPA02.main" />
 </module>
