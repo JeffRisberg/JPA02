@@ -11,7 +11,7 @@
     <orderEntry type="module" module-name="JPA02.main" />
     <orderEntry type="library" name="Gradle: com.netflix.archaius:archaius-core:0.7.7" level="project" />
     <orderEntry type="library" name="Gradle: com.zaxxer:HikariCP:2.7.9" level="project" />
-    <orderEntry type="library" name="Gradle: org.slf4j:slf4j-api:1.7.26" level="project" />
+    <orderEntry type="library" name="Gradle: org.slf4j:slf4j-api:1.7.32" level="project" />
     <orderEntry type="library" name="Gradle: org.projectlombok:lombok:1.16.20" level="project" />
     <orderEntry type="library" name="Gradle: org.apache.commons:commons-collections4:4.0" level="project" />
     <orderEntry type="library" name="Gradle: commons-collections:commons-collections:3.2.2" level="project" />
@@ -59,7 +59,7 @@
     <orderEntry type="library" name="Gradle: org.jvnet.staxex:stax-ex:1.8" level="project" />
     <orderEntry type="library" name="Gradle: com.sun.xml.fastinfoset:FastInfoset:1.2.15" level="project" />
     <orderEntry type="library" name="Gradle: com.palantir.docker.compose:docker-compose-rule-junit4:0.33.0" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.slf4j:slf4j-simple:1.7.26" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.slf4j:slf4j-simple:1.7.32" level="project" />
   </component>
   <component name="TestModuleProperties" production-module="JPA02.main" />
 </module>
