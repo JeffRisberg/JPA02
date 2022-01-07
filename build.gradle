@@ -15,9 +15,6 @@ buildscript {
 
 repositories {
   mavenCentral()
-  maven {
-    url 'https://dl.bintray.com/palantir/releases' // docker-compose-rule is published on bintray
-  }
 }
 
 apply plugin: 'java'
@@ -31,7 +28,7 @@ ext {
   archaiusVersion = '0.7.7'
   guiceVersion = '4.2.3'
   jacksonVersion = '2.11.2'
-  hibernateVersion = '5.4.33.Final'
+  hibernateVersion = '5.4.33'
   junitVersion = '4.13.2'
 }
 
@@ -61,7 +58,6 @@ dependencies {
   compile "mysql:mysql-connector-java:5.1.48"
 
   testCompile "junit:junit:$junitVersion"
-  testCompile 'com.palantir.docker.compose:docker-compose-rule-junit4:0.33.0'
 }
 
 shadowJar {
