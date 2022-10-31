@@ -6,11 +6,10 @@
 buildscript {
   repositories {
     mavenCentral()
-    jcenter()
   }
-  dependencies {
+  /*dependencies {
     classpath 'com.github.jengelman.gradle.plugins:shadow:2.0.4'
-  }
+  }*/
 }
 
 repositories {
@@ -18,7 +17,7 @@ repositories {
 }
 
 apply plugin: 'java'
-apply plugin: 'com.github.johnrengelman.shadow'
+/*apply plugin: 'com.github.johnrengelman.shadow'*/
 
 def jarName = "jpa02-all"
 
@@ -32,7 +31,7 @@ ext {
   junitVersion = '4.13.2'
 }
 
-assemble.dependsOn shadowJar
+/*assemble.dependsOn shadowJar*/
 
 dependencies {
   compile "org.slf4j:slf4j-api:$slf4jVersion"
@@ -60,7 +59,7 @@ dependencies {
   testCompile "junit:junit:$junitVersion"
 }
 
-shadowJar {
+/*shadowJar {
   zip64 true
   baseName = jarName
   classifier = null
@@ -77,4 +76,4 @@ shadowJar {
     exclude "META-INF/*.RSA"
   }
   with jar
-}
+}*/
