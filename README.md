@@ -1,5 +1,6 @@
 # JPA02
 
-Uses Jersey and JPA
+Uses JPA in a multi-tenant configuration
+
 
 
