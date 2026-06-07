@@ -104,7 +104,8 @@ public class LoggingConfig {
    * @param configuration the configuration
    */
   private static void updateLogLevel(Configuration configuration) {
-    configuration.getKeys(LOG_LEVEL_PREFIX).forEachRemaining(propertyKey -> {
+    configuration.getKeys(LOG_LEVEL_PREFIX).forEachRemaining(k -> {
+      String propertyKey = (String) k;
       String propertyValue = configuration.getString(propertyKey, "");
       if (!propertyValue.isEmpty()) {
         setLogLevel(propertyKey, propertyValue);
