@@ -121,6 +121,6 @@ public class ArchaiusAppConfig implements AppConfig {
     if (defaultValue != null) {
       return defaultValue.getClass();
     }
-    return null;
+    return String.class;
   }
 }

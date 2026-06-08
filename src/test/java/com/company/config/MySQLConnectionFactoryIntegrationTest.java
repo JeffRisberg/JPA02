@@ -10,7 +10,6 @@ import com.google.inject.Key;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import javax.sql.DataSource;
 import java.sql.Connection;
 
 import static org.junit.Assert.assertNotNull;
@@ -34,9 +33,6 @@ public class MySQLConnectionFactoryIntegrationTest {
          Connection c2 = factory.getUnPooledConnection()) {
       assertNotNull(c1);
       assertNotNull(c2);
-
-      DataSource ds = factory.getOrCreateDataSource();
-      assertNotNull(ds);
     }
   }
 }

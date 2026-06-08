@@ -10,7 +10,6 @@
     <class>com.company.models.DonationEntity</class>
     <class>com.company.models.DonorEntity</class>
     <class>com.company.models.OrderEntity</class>
-    <class>com.company.models.DataSource</class>
 
     <properties>
       <property name="hibernate.dialect" value="org.hibernate.dialect.MariaDBDialect"/>

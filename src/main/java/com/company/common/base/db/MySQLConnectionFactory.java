@@ -1,6 +1,8 @@
 package com.company.common.base.db;
 
+import com.company.common.base.binding.MySQL;
 import com.company.common.base.config.DatabaseConfig;
+import com.google.inject.Inject;
 import com.zaxxer.hikari.HikariDataSource;
 
 import javax.sql.DataSource;
@@ -17,7 +19,8 @@ public class MySQLConnectionFactory extends AbstractConnectionFactory implements
      */
     private DataSource dataSource;
 
-    public MySQLConnectionFactory(DatabaseConfig dbConfig) {
+    @Inject
+    public MySQLConnectionFactory(@MySQL DatabaseConfig dbConfig) {
         this.dbConfig = dbConfig;
     }
 
